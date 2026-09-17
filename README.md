@@ -12,7 +12,7 @@ Five documents covering four content types. The first is written against Ripplin
 
 [rippling/03-credential-lifecycle.md](rippling/03-credential-lifecycle.md)
 
-A reference page drafted for Rippling's App Shop Integrations documentation, consolidating credential lifetimes, reuse rules and renewal paths into a single lifecycle table, with a troubleshooting reference for the installation flow. Written in Markdown with frontmatter to match their existing docs-as-code setup, so it reads as source rather than as a finished page.
+A reference page drafted for Rippling's App Shop Integrations documentation, consolidating credential lifetimes, reuse rules and renewal paths into a single lifecycle table, with a troubleshooting reference for the installation flow.
 
 *Written from Rippling's published documentation rather than against a running integration. The structure and editorial choices are mine to defend; the technical claims would need checking by someone who has built on the API.*
 
