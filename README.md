@@ -2,11 +2,19 @@
 
 Hannah Lawrence-Brown
 
-Five documents covering four content types. Four of them come from Pennsylvania's supplier registration and procurement systems (a project I most recently worked on with United States Digital Response). The fifth is written against Rippling's published App Shop integration documentation.
+Five documents covering four content types. The first is written against Rippling's published App Shop integration documentation. The other four come from Pennsylvania's supplier registration and procurement systems (a project I most recently worked on with United States Digital Response).
 
 **Live pages:** https://halawren.github.io/writing-samples/
 
 ## The documents
+
+### Credential lifecycle and troubleshooting — reference
+
+[rippling/03-credential-lifecycle.md](rippling/03-credential-lifecycle.md)
+
+A reference page drafted for Rippling's App Shop Integrations documentation, consolidating credential lifetimes, reuse rules and renewal paths into a single lifecycle table, with a troubleshooting reference for the installation flow. Written in Markdown with frontmatter to match their existing docs-as-code setup, so it reads as source rather than as a finished page.
+
+*Written from Rippling's published documentation rather than against a running integration. The structure and editorial choices are mine to defend; the technical claims would need checking by someone who has built on the API.*
 
 ### Quick start guide — tutorial
 
@@ -30,20 +38,8 @@ One task, end to end, including the part most procedural guides leave out: confi
 
 [pa-economic-impact-report.html](https://halawren.github.io/writing-samples/pa-economic-impact-report.html)
 
-The analysis the three documents above came out of, written for decision-makers rather than practitioners. I traced $34 million in annual loss to failures in documentation and service design. The findings became the evidence base for the first publicly funded e-procurement platform shared across multiple US states.
-
-### Credential lifecycle and troubleshooting — reference
-
-[rippling/03-credential-lifecycle.md](rippling/03-credential-lifecycle.md)
-
-A reference page drafted for Rippling's App Shop Integrations documentation, consolidating credential lifetimes, reuse rules and renewal paths into a single lifecycle table, with a troubleshooting reference for the installation flow. Written in Markdown with frontmatter to match their existing docs-as-code setup, so it reads as source rather than as a finished page.
-
-## On the content types
-
-A tutorial, a reference and a how-to guide answer different questions and fail in different ways. A tutorial that stops to explain architecture loses the beginner it was written for. A reference page that tries to teach becomes unsearchable. A how-to that assumes nothing turns into a tutorial and stops being useful to the person who already knows the basics.
-
-These were written as a set, with that separation held deliberately, and they cross-reference each other rather than repeating.
+The analysis the three Pennsylvania documents above came out of, written for decision-makers rather than practitioners. I traced $34 million in annual loss to failures in documentation and service design. The findings became the evidence base for the first publicly funded e-procurement platform shared across multiple US states.
 
 ## Formats
 
-The three Pennsylvania documents are standalone HTML because they were standalone deliverables: responsive, printable, and self-contained. The Rippling page is Markdown because it was written to drop into an existing documentation pipeline. Reading it on GitHub, as source, is the right way to see it.
+The four Pennsylvania documents are standalone HTML because they were standalone deliverables: responsive, printable, and self-contained. The Rippling page is Markdown because it was written to drop into an existing documentation pipeline. Reading it on GitHub, as source, is the right way to see it.
