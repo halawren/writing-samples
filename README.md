@@ -2,7 +2,7 @@
 
 Hannah Lawrence-Brown
 
-Four documents covering three content types. Three of them document Pennsylvania's supplier registration and procurement systems, from research I did on the Commonwealth's e-procurement redesign. The fourth is written against Rippling's published App Shop integration documentation.
+Four documents covering three content types. Three of them document Pennsylvania's supplier registration and procurement systems (a project I most recently worked on with United States Digital Response). The fourth is written against Rippling's published App Shop integration documentation.
 
 **Live pages:** https://halawren.github.io/writing-samples/
 
