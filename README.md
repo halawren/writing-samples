@@ -2,7 +2,7 @@
 
 Hannah Lawrence-Brown
 
-Four documents covering three content types. Three of them document Pennsylvania's supplier registration and procurement systems (a project I most recently worked on with United States Digital Response). The fourth is written against Rippling's published App Shop integration documentation.
+Five documents covering four content types. Four of them come from Pennsylvania's supplier registration and procurement systems (a project I most recently worked on with United States Digital Response). The fifth is written against Rippling's published App Shop integration documentation.
 
 **Live pages:** https://halawren.github.io/writing-samples/
 
@@ -25,6 +25,12 @@ The structural counterpart to the guide. Which system owns what, which identifie
 [pa-ealerts-howto.html](https://halawren.github.io/writing-samples/pa-ealerts-howto.html)
 
 One task, end to end, including the part most procedural guides leave out: confirming it actually worked, and diagnosing it when it hasn't. Expected result stated after every step, plus a troubleshooting reference.
+
+### Economic impact of Pennsylvania's procurement process — analytical report
+
+[pa-economic-impact-report.pdf](https://halawren.github.io/writing-samples/pa-economic-impact-report.pdf)
+
+The analysis the three documents above came out of. Written for decision-makers rather than practitioners, which makes it a different audience, a different structure and a different job from the guides.
 
 ### Credential lifecycle and troubleshooting — reference
 
