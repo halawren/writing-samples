@@ -49,6 +49,10 @@
   }
   .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
   .desc { font-size: .94rem; color: var(--ink-soft); }
+  .caveat {
+    font-size: .87rem; font-style: italic; color: var(--ink-faint);
+    margin-top: 11px; padding-left: 12px; border-left: 2px solid var(--rule);
+  }
 
   .note { margin-top: 38px; font-size: .92rem; color: var(--ink-soft); }
   .note h2 {
@@ -107,6 +111,11 @@
       Drafted for Rippling's App Shop Integrations documentation. Consolidates credential lifetimes,
       reuse rules and renewal paths into one lifecycle table, with a troubleshooting reference for the
       installation flow. Written in Markdown with frontmatter to match their docs-as-code setup.
+    </p>
+    <p class="caveat">
+      Written from Rippling's published documentation rather than against a running integration. The structure
+      and editorial choices are mine to defend; the technical claims would need checking by someone who has
+      built on the API.
     </p>
   </a>
 
