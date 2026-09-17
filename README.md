@@ -28,7 +28,7 @@ One task, end to end, including the part most procedural guides leave out: confi
 
 ### Economic impact of Pennsylvania's procurement process — analytical report
 
-[pa-economic-impact-report.pdf](https://halawren.github.io/writing-samples/pa-economic-impact-report.pdf)
+[pa-economic-impact-report.html](https://halawren.github.io/writing-samples/pa-economic-impact-report.html)
 
 The analysis the three documents above came out of. Written for decision-makers rather than practitioners, which makes it a different audience, a different structure and a different job from the guides.
 
