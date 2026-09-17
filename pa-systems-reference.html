@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PA Commonwealth Supplier: Systems &amp; Identifier Reference</title>
+  <style>
+    /* ─── Design Tokens (shared with the Quick Start Guide) ──── */
+    :root {
+      --blue-deep:    #002F6C;
+      --blue-mid:     #0071BB;
+      --blue-light:   #E8F2FB;
+      --blue-lighter: #F0F7FF;
+      --gold:         #FFC72C;
+      --green:        #059669;
+      --green-bg:     #ECFDF5;
+      --amber:        #D97706;
+      --amber-bg:     #FFFBEB;
+      --gray-bg:      #F2F5F9;
+      --gray-border:  #E2E8F0;
+      --text-dark:    #1A202C;
+      --text-mid:     #4A5568;
+      --text-light:   #718096;
+      --white:        #FFFFFF;
+      --shadow-sm:    0 1px 4px rgba(0,47,108,.07);
+      --radius:       14px;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: var(--gray-bg);
+    }
+    a { color: var(--blue-mid); }
+
+    /* ─── Header ────────────────────────────────────────────── */
+    .site-header {
+      background: linear-gradient(150deg, var(--blue-deep) 0%, #004aad 100%);
+      color: var(--white);
+    }
+    .header-eyebrow {
+      background: rgba(0,0,0,.22);
+      text-align: center;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      color: rgba(255,255,255,.8);
+    }
+    .header-body { text-align: center; padding: 44px 20px 52px; }
+    .header-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 24px;
+      padding: 5px 16px;
+      font-size: .8rem; font-weight: 700;
+      letter-spacing: .5px; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .header-body h1 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 800; line-height: 1.2; margin-bottom: 12px;
+    }
+    .header-body h1 span { color: var(--gold); }
+    .header-body .sub {
+      font-size: 1.05rem; opacity: .88;
+      max-width: 620px; margin: 0 auto 22px;
+    }
+    .header-rule {
+      width: 56px; height: 4px; background: var(--gold);
+      border-radius: 2px; margin: 0 auto;
+    }
+
+    /* ─── Section Nav ───────────────────────────────────────── */
+    .section-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 12px 20px;
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 6px 18px;
+      position: sticky; top: 0; z-index: 20;
+    }
+    .section-nav a {
+      font-size: .82rem; font-weight: 600;
+      color: var(--text-mid); text-decoration: none;
+      white-space: nowrap;
+    }
+    .section-nav a:hover { color: var(--blue-deep); text-decoration: underline; }
+
+    /* ─── Layout ────────────────────────────────────────────── */
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 64px; }
+    .toolbar { display: flex; justify-content: flex-end; margin-bottom: 14px; }
+    .section { margin-bottom: 20px; scroll-margin-top: 74px; }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .card-body { padding: 28px 28px 30px; }
+
+    .section-kicker {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-light); color: var(--blue-mid);
+      padding: 3px 11px; border-radius: 20px;
+      font-size: .76rem; font-weight: 700;
+      letter-spacing: .4px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-h2 {
+      font-size: 1.45rem; font-weight: 800;
+      color: var(--blue-deep); margin-bottom: 5px;
+    }
+    .section-sub {
+      color: var(--text-mid); font-size: .96rem; margin-bottom: 22px;
+    }
+    .body-p { color: var(--text-mid); font-size: .96rem; margin-bottom: 14px; }
+    .body-p:last-child { margin-bottom: 0; }
+    .body-p strong { color: var(--text-dark); }
+
+    h3.sub-h {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--blue-deep); margin: 24px 0 10px;
+    }
+    h3.sub-h:first-of-type { margin-top: 0; }
+
+    /* ─── Tables ────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; margin: 14px 0 4px; }
+    table {
+      width: 100%; border-collapse: collapse;
+      font-size: .89rem; min-width: 560px;
+    }
+    caption {
+      caption-side: top; text-align: left;
+      font-size: .82rem; font-weight: 700;
+      color: var(--text-light); text-transform: uppercase;
+      letter-spacing: .4px; padding-bottom: 8px;
+    }
+    th {
+      background: var(--blue-light); color: var(--blue-deep);
+      text-align: left; font-weight: 700;
+      padding: 10px 13px; border-bottom: 2px solid rgba(0,113,187,.2);
+      vertical-align: bottom;
+    }
+    td {
+      padding: 10px 13px; border-bottom: 1px solid var(--gray-border);
+      color: var(--text-mid); vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #FAFBFD; }
+    td strong, td code { color: var(--text-dark); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .87em; background: var(--gray-bg);
+      padding: 1px 5px; border-radius: 4px;
+    }
+    .nowrap { white-space: nowrap; }
+
+    /* ─── Callouts ──────────────────────────────────────────── */
+    .callout { border-radius: 8px; padding: 14px 17px; margin: 16px 0; }
+    .callout.amber { background: var(--amber-bg);  border-left: 4px solid var(--amber); }
+    .callout.blue  { background: var(--blue-light); border-left: 4px solid var(--blue-mid); }
+    .callout.green { background: var(--green-bg);  border-left: 4px solid var(--green); }
+    .callout h4 {
+      font-size: .82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .35px; margin-bottom: 9px;
+    }
+    .callout.amber h4 { color: #92400E; }
+    .callout.blue  h4 { color: var(--blue-deep); }
+    .callout.green h4 { color: #065F46; }
+    .callout p { font-size: .91rem; }
+    .callout.amber p { color: #78350F; }
+    .callout.blue  p { color: #1E3A8A; }
+    .callout.green p { color: #065F46; }
+    .callout ul { list-style: none; padding: 0; }
+    .callout li { padding: 3px 0 3px 20px; position: relative; font-size: .91rem; }
+    .callout.amber li { color: #78350F; }
+    .callout.blue  li { color: #1E3A8A; }
+    .callout.green li { color: #065F46; }
+    .callout li::before { position: absolute; left: 0; }
+    .callout.amber li::before { content: '→'; }
+    .callout.blue  li::before { content: '•'; color: var(--blue-mid); }
+    .callout.green li::before { content: '✓'; }
+
+    /* ─── Diagram ───────────────────────────────────────────── */
+    .diagram { margin: 18px 0 6px; }
+    .diagram svg { width: 100%; height: auto; display: block; }
+    .diagram-legend {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-top: 10px; font-size: .82rem; color: var(--text-mid);
+    }
+    .legend-item { display: inline-flex; align-items: center; gap: 7px; }
+    .legend-swatch {
+      width: 13px; height: 13px; border-radius: 3px;
+      border: 1px solid; flex-shrink: 0;
+    }
+
+    /* ─── Definition list ───────────────────────────────────── */
+    .glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+    .gl-item {
+      padding: 11px 0; border-bottom: 1px solid var(--gray-border);
+    }
+    .gl-term {
+      font-weight: 700; color: var(--blue-deep);
+      font-size: .9rem; margin-bottom: 2px;
+    }
+    .gl-def { font-size: .87rem; color: var(--text-mid); line-height: 1.5; }
+
+    /* ─── Buttons ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 10px 20px; border-radius: 7px;
+      font-weight: 700; font-size: .9rem; text-decoration: none;
+      border: 2px solid transparent; cursor: pointer; line-height: 1;
+      transition: all .2s ease;
+    }
+    .btn-ghost {
+      background: transparent; color: var(--text-mid);
+      border-color: var(--gray-border);
+    }
+    .btn-ghost:hover { background: #f0f2f5; }
+    .btn-sm { padding: 7px 13px; font-size: .82rem; }
+
+    /* ─── Footnote ──────────────────────────────────────────── */
+    .footnote {
+      text-align: center; font-size: .79rem;
+      color: var(--text-light); margin-top: 22px;
+      padding-top: 16px; border-top: 1px solid var(--gray-border);
+    }
+    .footnote a { color: var(--blue-mid); text-decoration: none; }
+    .footnote a:hover { text-decoration: underline; }
+
+    /* ─── Responsive ────────────────────────────────────────── */
+    @media (max-width: 760px) {
+      .glossary { grid-template-columns: 1fr; }
+      .section-nav { display: none; }
+      .card-body { padding: 22px 18px 24px; }
+    }
+
+    /* ─── Print ─────────────────────────────────────────────── */
+    @media print {
+      body { background: white; }
+      .toolbar, .section-nav { display: none; }
+      .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+      .site-header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      table { min-width: 0; font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════ HEADER ══════════════════════════════ -->
+<header class="site-header">
+  <div class="header-eyebrow">
+    Commonwealth of Pennsylvania &nbsp;·&nbsp; Dept. of General Services &nbsp;·&nbsp; BISD
+  </div>
+  <div class="header-body">
+    <div class="header-pill">📐 Reference</div>
+    <h1>Supplier Systems &amp;<br><span>Identifier Reference</span></h1>
+    <p class="sub">How the Commonwealth's supplier systems fit together: which system owns what, which identifiers move between them, and what each certification status permits.</p>
+    <div class="header-rule"></div>
+  </div>
+</header>
+
+<!-- ══════════════════════ SECTION NAV ═════════════════════════ -->
+<nav class="section-nav" aria-label="Sections">
+  <a href="#about">About</a>
+  <a href="#landscape">System landscape</a>
+  <a href="#identifiers">Identifiers</a>
+  <a href="#status">Status model</a>
+  <a href="#paths">Certification paths</a>
+  <a href="#solicitations">Solicitation types</a>
+  <a href="#handoffs">Handoffs</a>
+  <a href="#timing">Time to eligibility</a>
+  <a href="#glossary">Glossary</a>
+  <a href="#support">Support routing</a>
+</nav>
+
+<main class="wrap">
+
+  <div class="toolbar">
+    <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨️ Print Reference</button>
+  </div>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────── -->
+  <section class="section card" id="about">
+    <div class="card-body">
+      <div class="section-kicker">Start here</div>
+      <h2 class="section-h2">About this reference</h2>
+      <p class="section-sub">What this document covers, who it is for, and how it relates to the Quick Start Guide.</p>
+
+      <p class="body-p">
+        The <strong>Quick Start Guide</strong> is task-oriented. It walks a supplier through registration,
+        certification and finding opportunities in the order those things have to happen.
+      </p>
+      <p class="body-p">
+        This document is the reference counterpart. It does not walk through anything. It describes the
+        <strong>structure</strong> a supplier is moving through: the separate systems involved, the identifiers
+        that connect them, the statuses a supplier record can hold, and what each status makes available.
+        Use it when you need to look something up, resolve a discrepancy, or understand why a step in the
+        Quick Start Guide is ordered the way it is.
+      </p>
+
+      <div class="callout blue">
+        <h4>📖 Who this is for</h4>
+        <ul>
+          <li><strong>Suppliers</strong> resolving a specific blocker rather than starting from scratch</li>
+          <li><strong>Procurement and BISD staff</strong> answering supplier questions</li>
+          <li><strong>Business assistance organisations</strong> advising multiple clients through the process</li>
+        </ul>
+      </div>
+
+      <div class="callout amber">
+        <h4>⚠️ Scope</h4>
+        <ul>
+          <li>Describes the supplier-facing behaviour of each system: what a supplier submits, receives and must carry forward</li>
+          <li>Does not describe backend data exchange between Commonwealth systems, which is not publicly documented</li>
+          <li>Timeframes are the published service levels, not guarantees</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SYSTEM LANDSCAPE ───────────────────────────────────── -->
+  <section class="section card" id="landscape">
+    <div class="card-body">
+      <div class="section-kicker">Architecture</div>
+      <h2 class="section-h2">System landscape</h2>
+      <p class="section-sub">Registration, certification and bidding happen in different systems. Registration gates everything else.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 900 310" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>PA supplier system landscape</title>
+          <desc>The PA Supplier Portal issues a vendor number, which is required by PRISM Compliance for certification and by the bidding platforms. An external third-party certifier supplies a certificate required only for SDB and VBE verification. Registration alone permits bidding.</desc>
+
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- External certifier -->
+          <rect x="340" y="20" width="220" height="62" rx="9" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="450" y="45" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">Third-party certifier</text>
+          <text x="450" y="65" text-anchor="middle" font-size="12" fill="#B45309">NMSDC · WBENC · CVE · NaVOBA</text>
+
+          <!-- Arrow: certifier down into PRISM -->
+          <line x1="450" y1="82" x2="450" y2="142" stroke="#D97706" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="462" y="116" font-size="12" fill="#B45309">certificate</text>
+
+          <!-- Supplier Portal -->
+          <rect x="30" y="152" width="230" height="74" rx="9" fill="#E8F2FB" stroke="#002F6C" stroke-width="1.5"/>
+          <text x="145" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#002F6C">PA Supplier Portal</text>
+          <text x="145" y="200" text-anchor="middle" font-size="12" fill="#0071BB">Registration</text>
+          <text x="145" y="216" text-anchor="middle" font-size="12" fill="#0071BB">Issues vendor number</text>
+
+          <!-- PRISM -->
+          <rect x="335" y="152" width="230" height="74" rx="9" fill="#E8F2FB" stroke="#002F6C" stroke-width="1.5"/>
+          <text x="450" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#002F6C">PRISM Compliance</text>
+          <text x="450" y="200" text-anchor="middle" font-size="12" fill="#0071BB">Certification</text>
+          <text x="450" y="216" text-anchor="middle" font-size="12" fill="#0071BB">SB · SDB · VBE</text>
+
+          <!-- Bidding -->
+          <rect x="640" y="152" width="230" height="74" rx="9" fill="#E8F2FB" stroke="#002F6C" stroke-width="1.5"/>
+          <text x="755" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#002F6C">Bidding platforms</text>
+          <text x="755" y="200" text-anchor="middle" font-size="12" fill="#0071BB">eMarketplace · JAGGAER</text>
+          <text x="755" y="216" text-anchor="middle" font-size="12" fill="#0071BB">COSTARS · E-Alerts</text>
+
+          <!-- Portal -> PRISM -->
+          <line x1="260" y1="177" x2="325" y2="177" stroke="#002F6C" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="292" y="167" text-anchor="middle" font-size="12" fill="#0071BB">vendor no.</text>
+
+          <!-- PRISM -> Bidding -->
+          <line x1="565" y1="177" x2="630" y2="177" stroke="#002F6C" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="597" y="167" text-anchor="middle" font-size="12" fill="#0071BB">status</text>
+
+          <!-- Portal -> Bidding, bypassing certification -->
+          <path d="M145 226 L145 272 L755 272 L755 236" fill="none" stroke="#0071BB" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+          <text x="450" y="292" text-anchor="middle" font-size="12" fill="#0071BB">registration alone permits bidding; certification adds designations</text>
+        </svg>
+      </div>
+
+      <div class="diagram-legend">
+        <span class="legend-item">
+          <span class="legend-swatch" style="background:#E8F2FB; border-color:#002F6C;"></span>
+          Commonwealth system
+        </span>
+        <span class="legend-item">
+          <span class="legend-swatch" style="background:#FFFBEB; border-color:#D97706;"></span>
+          External to the Commonwealth
+        </span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Systems and what each one owns</caption>
+          <thead>
+            <tr>
+              <th scope="col">System</th>
+              <th scope="col">Operated by</th>
+              <th scope="col">Owns</th>
+              <th scope="col">Access requires</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PA Supplier Portal</strong></td>
+              <td>Commonwealth of PA</td>
+              <td>Supplier registration record, vendor number, banking and payment details</td>
+              <td>EIN or SSN</td>
+            </tr>
+            <tr>
+              <td><strong>PRISM Compliance</strong></td>
+              <td>BISD (within DGS)</td>
+              <td>All SB, SDB and VBE certification records</td>
+              <td>Vendor number</td>
+            </tr>
+            <tr>
+              <td><strong>Third-party certifier</strong></td>
+              <td>External organisations</td>
+              <td>Diversity and veteran certificates</td>
+              <td>Varies by certifier</td>
+            </tr>
+            <tr>
+              <td><strong>eMarketplace</strong></td>
+              <td>Commonwealth of PA</td>
+              <td>IFBs and general competitive bids</td>
+              <td>Registration</td>
+            </tr>
+            <tr>
+              <td><strong>JAGGAER</strong></td>
+              <td>Third-party platform</td>
+              <td>RFPs, ITQs, R3-RFQs, SFPs</td>
+              <td>Registration, separate supplier login</td>
+            </tr>
+            <tr>
+              <td><strong>E-Alerts</strong></td>
+              <td>DGS</td>
+              <td>Solicitation notifications matched on NAICS</td>
+              <td>Separate account, NAICS codes</td>
+            </tr>
+            <tr>
+              <td><strong>COSTARS</strong></td>
+              <td>DGS</td>
+              <td>Cooperative purchasing from active contracts</td>
+              <td>Active Commonwealth contract</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── IDENTIFIERS ────────────────────────────────────────── -->
+  <section class="section card" id="identifiers">
+    <div class="card-body">
+      <div class="section-kicker">Data</div>
+      <h2 class="section-h2">Identifiers</h2>
+      <p class="section-sub">Five values connect a supplier across the systems above. Each is issued by a different authority.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Identifier reference</caption>
+          <thead>
+            <tr>
+              <th scope="col">Identifier</th>
+              <th scope="col">Issued by</th>
+              <th scope="col">Obtained</th>
+              <th scope="col">Required for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Federal Tax ID (EIN)</strong></td>
+              <td>IRS</td>
+              <td>Before registration begins</td>
+              <td>Supplier registration</td>
+            </tr>
+            <tr>
+              <td><strong>SSN</strong></td>
+              <td>SSA</td>
+              <td>Already held</td>
+              <td>Supplier registration, for sole proprietors in place of an EIN</td>
+            </tr>
+            <tr>
+              <td><strong>Vendor number</strong></td>
+              <td>Commonwealth, via the Supplier Portal</td>
+              <td>By email, <span class="nowrap">1 to 3 business days</span> after registration</td>
+              <td>Certification, bidding, receiving payment</td>
+            </tr>
+            <tr>
+              <td><strong>NAICS code</strong></td>
+              <td>US Census Bureau classification, self-selected</td>
+              <td>Looked up at <code>census.gov/naics</code></td>
+              <td>Registration, opportunity matching, E-Alerts</td>
+            </tr>
+            <tr>
+              <td><strong>Third-party certificate</strong></td>
+              <td>An approved external certifier</td>
+              <td><span class="nowrap">1 to 90 days</span>, varies by certifier</td>
+              <td>SDB and VBE verification only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout blue">
+        <h4>💡 The vendor number is the join key</h4>
+        <p>
+          It is issued by one system and consumed by every other one. A supplier cannot certify, bid or be paid
+          without it, which is why registration has to complete before anything else can start. If a supplier is
+          blocked at any later stage, confirming the vendor number is the first thing to check.
+        </p>
+      </div>
+
+      <div class="callout green">
+        <h4>✅ NAICS codes do more than describe the business</h4>
+        <ul>
+          <li>They are the matching key E-Alerts uses to decide which solicitations a supplier is notified about</li>
+          <li>A supplier with too few codes registered will silently receive fewer notifications</li>
+          <li>Codes can be updated at any time through the Supplier Portal</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATUS MODEL ───────────────────────────────────────── -->
+  <section class="section card" id="status">
+    <div class="card-body">
+      <div class="section-kicker">States</div>
+      <h2 class="section-h2">Supplier status model</h2>
+      <p class="section-sub">A supplier record moves through a fixed sequence. Each status has one entry route and grants a specific set of capabilities.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Statuses, entry conditions and what each unlocks</caption>
+          <thead>
+            <tr>
+              <th scope="col">Status</th>
+              <th scope="col">Entered by</th>
+              <th scope="col">Elapsed time</th>
+              <th scope="col">Unlocks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Unregistered</strong></td>
+              <td>Initial state</td>
+              <td>&mdash;</td>
+              <td>Nothing. Solicitations can be viewed but not responded to.</td>
+            </tr>
+            <tr>
+              <td><strong>Registered</strong></td>
+              <td>Completing Supplier Portal registration and receiving a vendor number</td>
+              <td><span class="nowrap">15 to 20 min</span> plus <span class="nowrap">1 to 3 business days</span></td>
+              <td>Bidding on open solicitations, receiving payment, applying for certification</td>
+            </tr>
+            <tr>
+              <td><strong>Self-certified (SB)</strong></td>
+              <td>Self-certifying in PRISM against the size criteria</td>
+              <td>Immediate on submission</td>
+              <td>Small Business designation; required precondition for SDB and VBE</td>
+            </tr>
+            <tr>
+              <td><strong>Verified (SDB)</strong></td>
+              <td>Holding a valid third-party diversity certificate and submitting it for PA verification</td>
+              <td>Under 10 business days from a complete submission</td>
+              <td>Small Diverse Business designation</td>
+            </tr>
+            <tr>
+              <td><strong>Verified (VBE)</strong></td>
+              <td>Holding a valid veteran-specific third-party certificate and submitting it for PA verification</td>
+              <td>Under 10 business days from a complete submission</td>
+              <td>Veteran Business Enterprise designation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout amber">
+        <h4>⚠️ SDB and VBE are additive, not alternative</h4>
+        <ul>
+          <li>Both require the supplier to <strong>also</strong> meet the Small Business size criteria</li>
+          <li>Neither can be reached directly. A supplier must be registered first, and must hold an external certificate before PA verification can begin</li>
+          <li>A supplier who applies for SDB verification without a third-party certificate in hand will be stopped, not queued</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATION PATHS ────────────────────────────────── -->
+  <section class="section card" id="paths">
+    <div class="card-body">
+      <div class="section-kicker">Comparison</div>
+      <h2 class="section-h2">Certification paths compared</h2>
+      <p class="section-sub">All three are administered through PRISM Compliance, but they differ in prerequisite, evidence and turnaround.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>SB, SDB and VBE side by side</caption>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Small Business (SB)</th>
+              <th scope="col">Small Diverse Business (SDB)</th>
+              <th scope="col">Veteran Business Enterprise (VBE)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Size criteria</strong></td>
+              <td>100 or fewer FTE employees, <strong>or</strong> under $47M annual gross revenue</td>
+              <td>Same as SB, required</td>
+              <td>Same as SB, required</td>
+            </tr>
+            <tr>
+              <td><strong>Ownership criteria</strong></td>
+              <td>None</td>
+              <td>51%+ owned by minorities, women, persons with disabilities, or LGBTQIA+ members</td>
+              <td>51%+ owned by veterans or service-disabled veterans</td>
+            </tr>
+            <tr>
+              <td><strong>External certificate</strong></td>
+              <td>Not required</td>
+              <td>Required, from an approved certifier</td>
+              <td>Required, veteran-specific</td>
+            </tr>
+            <tr>
+              <td><strong>Review type</strong></td>
+              <td>Self-certification</td>
+              <td>PA verification of an existing certificate</td>
+              <td>PA verification of an existing certificate</td>
+            </tr>
+            <tr>
+              <td><strong>Turnaround</strong></td>
+              <td>Immediate</td>
+              <td>Under 10 business days</td>
+              <td>Under 10 business days</td>
+            </tr>
+            <tr>
+              <td><strong>Where applied</strong></td>
+              <td>PRISM Compliance</td>
+              <td>PRISM Compliance</td>
+              <td>PRISM Compliance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="body-p" style="margin-top:16px;">
+        A supplier may hold more than one designation. SDB and VBE are not mutually exclusive, and both sit on
+        top of the Small Business size test rather than replacing it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── SOLICITATION TYPES ─────────────────────────────────── -->
+  <section class="section card" id="solicitations">
+    <div class="card-body">
+      <div class="section-kicker">Reference</div>
+      <h2 class="section-h2">Solicitation types</h2>
+      <p class="section-sub">Which platform a solicitation appears on is determined by its type, not by the agency issuing it.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Solicitation types and platforms</caption>
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Full name</th>
+              <th scope="col">Award basis</th>
+              <th scope="col">Platform</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>IFB</strong></td>
+              <td>Invitation for Bid</td>
+              <td>Lowest responsive price</td>
+              <td>eMarketplace</td>
+            </tr>
+            <tr>
+              <td><strong>RFP</strong></td>
+              <td>Request for Proposal</td>
+              <td>Overall value, not price alone</td>
+              <td>JAGGAER</td>
+            </tr>
+            <tr>
+              <td><strong>ITQ</strong></td>
+              <td>Invitation to Qualify</td>
+              <td>Pre-qualification for a contract pool</td>
+              <td>JAGGAER</td>
+            </tr>
+            <tr>
+              <td><strong>R3-RFQ</strong></td>
+              <td>Request for Qualified Applicants</td>
+              <td>Qualification, used for P3 projects</td>
+              <td>JAGGAER</td>
+            </tr>
+            <tr>
+              <td><strong>SFP</strong></td>
+              <td>Simplified for Purchase</td>
+              <td>Streamlined, for smaller purchases</td>
+              <td>JAGGAER</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout blue">
+        <h4>💡 COSTARS is a program, not a solicitation type</h4>
+        <p>
+          COSTARS is a cooperative purchasing program that lets local agencies, school districts and non-profits
+          buy from contracts the Commonwealth has already awarded. A supplier reaches it by winning a
+          Commonwealth contract first, not by responding to a COSTARS solicitation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HANDOFFS ───────────────────────────────────────────── -->
+  <section class="section card" id="handoffs">
+    <div class="card-body">
+      <div class="section-kicker">Analysis</div>
+      <h2 class="section-h2">What the supplier carries between systems</h2>
+      <p class="section-sub">Each system issues something the next one requires. The supplier is responsible for moving it.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Manual handoffs in the supplier journey</caption>
+          <thead>
+            <tr>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">What the supplier carries</th>
+              <th scope="col">Delay introduced</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IRS</td>
+              <td>PA Supplier Portal</td>
+              <td>EIN</td>
+              <td>None, if already held</td>
+            </tr>
+            <tr>
+              <td>PA Supplier Portal</td>
+              <td>PRISM Compliance</td>
+              <td>Vendor number</td>
+              <td><span class="nowrap">1 to 3 business days</span></td>
+            </tr>
+            <tr>
+              <td>Third-party certifier</td>
+              <td>PRISM Compliance</td>
+              <td>Diversity or veteran certificate</td>
+              <td><span class="nowrap">1 to 90 days</span></td>
+            </tr>
+            <tr>
+              <td>PA Supplier Portal</td>
+              <td>E-Alerts</td>
+              <td>NAICS codes, re-entered</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>PA Supplier Portal</td>
+              <td>JAGGAER</td>
+              <td>Supplier details, separate login created</td>
+              <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="body-p" style="margin-top:16px;">
+        Reaching full SDB or VBE status requires accounts in at least four systems, two of which are outside
+        the Commonwealth. Nothing in the sequence can be done in parallel: the vendor number cannot be requested
+        before registration, and PA verification cannot begin before an external certificate exists.
+      </p>
+
+      <div class="callout amber">
+        <h4>⚠️ Where suppliers most often stall</h4>
+        <ul>
+          <li><strong>Waiting on the vendor number.</strong> It arrives by email and is frequently filtered to spam, so the supplier believes registration failed</li>
+          <li><strong>Applying for SDB or VBE too early.</strong> The third-party certificate is a precondition, not something PA obtains on the supplier's behalf</li>
+          <li><strong>Registering too few NAICS codes.</strong> This produces no error, only fewer notifications, so it is rarely noticed</li>
+          <li><strong>Assuming certification is required to bid.</strong> Registration alone is sufficient for open solicitations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TIMING ─────────────────────────────────────────────── -->
+  <section class="section card" id="timing">
+    <div class="card-body">
+      <div class="section-kicker">Planning</div>
+      <h2 class="section-h2">Time to eligibility</h2>
+      <p class="section-sub">Cumulative elapsed time from a standing start, using published service levels.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Elapsed time by path</caption>
+          <thead>
+            <tr>
+              <th scope="col">Path</th>
+              <th scope="col">Best case</th>
+              <th scope="col">Worst case</th>
+              <th scope="col">Governed by</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Registration only</strong></td>
+              <td>1 business day</td>
+              <td>3 business days</td>
+              <td>Vendor number issuance</td>
+            </tr>
+            <tr>
+              <td><strong>SB self-certification</strong></td>
+              <td>1 business day</td>
+              <td>3 business days</td>
+              <td>Vendor number issuance; certification itself is immediate</td>
+            </tr>
+            <tr>
+              <td><strong>SDB or VBE, certificate already held</strong></td>
+              <td>~11 business days</td>
+              <td>~13 business days</td>
+              <td>Vendor number, then PA verification</td>
+            </tr>
+            <tr>
+              <td><strong>SDB or VBE, no certificate yet</strong></td>
+              <td>~12 days</td>
+              <td>~100 days</td>
+              <td>Third-party certification, which dominates the total</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout green">
+        <h4>✅ Planning guidance</h4>
+        <ul>
+          <li>A supplier with a specific solicitation deadline in mind should register immediately, since registration alone permits bidding</li>
+          <li>Certification can proceed in the background once the vendor number arrives</li>
+          <li>Any supplier intending to pursue SDB or VBE should begin third-party certification first, because it is the longest and least predictable stage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GLOSSARY ───────────────────────────────────────────── -->
+  <section class="section card" id="glossary">
+    <div class="card-body">
+      <div class="section-kicker">Terms</div>
+      <h2 class="section-h2">Glossary</h2>
+      <p class="section-sub">Acronyms used across Commonwealth procurement systems and documentation.</p>
+
+      <div class="glossary">
+        <div class="gl-item">
+          <div class="gl-term">BISD</div>
+          <div class="gl-def">Bureau of Diversity, Inclusion and Small Business Opportunities. Administers all certification within DGS.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">COSTARS</div>
+          <div class="gl-def">Cooperative purchasing program allowing local agencies to buy from awarded Commonwealth contracts.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">CVE</div>
+          <div class="gl-def">Center for Verification and Evaluation, US Dept. of Veterans Affairs. An approved veteran certifier.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">DGS</div>
+          <div class="gl-def">Pennsylvania Department of General Services. Owns Commonwealth procurement.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">DOBE</div>
+          <div class="gl-def">Disability-Owned Business Enterprise. An eligible diverse category for SDB.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">EIN</div>
+          <div class="gl-def">Employer Identification Number, issued by the IRS. Required to register.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">IFB</div>
+          <div class="gl-def">Invitation for Bid. Awarded on lowest responsive price. Posted to eMarketplace.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">ITQ</div>
+          <div class="gl-def">Invitation to Qualify. Establishes a pre-qualified pool rather than awarding directly.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">MBE</div>
+          <div class="gl-def">Minority-Owned Business Enterprise. An eligible diverse category for SDB.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">NAICS</div>
+          <div class="gl-def">North American Industry Classification System. Codes identifying what a business supplies; used for opportunity matching.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">NaVOBA</div>
+          <div class="gl-def">National Veteran-Owned Business Association. An approved veteran certifier.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">NMSDC</div>
+          <div class="gl-def">National Minority Supplier Development Council. An approved diversity certifier.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">P3</div>
+          <div class="gl-def">Public-private partnership. Procured through R3-RFQ.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">PRISM Compliance</div>
+          <div class="gl-def">The portal through which BISD administers SB, SDB and VBE certification.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">R3-RFQ</div>
+          <div class="gl-def">Request for Qualified Applicants. Used for P3 projects.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">RFP</div>
+          <div class="gl-def">Request for Proposal. Evaluated on overall value rather than price alone.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">SB</div>
+          <div class="gl-def">Small Business. Self-certified against Commonwealth size standards.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">SDB</div>
+          <div class="gl-def">Small Diverse Business. Requires SB size criteria plus a third-party diversity certificate.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">SDVOB</div>
+          <div class="gl-def">Service-Disabled Veteran-Owned Business. Covered under VBE.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">SFP</div>
+          <div class="gl-def">Simplified for Purchase. Streamlined procurement for smaller purchases.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">VBE</div>
+          <div class="gl-def">Veteran Business Enterprise. Requires SB size criteria plus a veteran-specific certificate.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">VOB</div>
+          <div class="gl-def">Veteran-Owned Business. Covered under VBE.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">WBE</div>
+          <div class="gl-def">Women-Owned Business Enterprise. An eligible diverse category for SDB.</div>
+        </div>
+        <div class="gl-item">
+          <div class="gl-term">WBENC</div>
+          <div class="gl-def">Women's Business Enterprise National Council. An approved diversity certifier.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SUPPORT ROUTING ────────────────────────────────────── -->
+  <section class="section card" id="support">
+    <div class="card-body">
+      <div class="section-kicker">Escalation</div>
+      <h2 class="section-h2">Support routing</h2>
+      <p class="section-sub">Support is split by system, not by stage. Routing to the wrong desk is a common source of delay.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Which desk handles which problem</caption>
+          <thead>
+            <tr>
+              <th scope="col">Problem</th>
+              <th scope="col">Desk</th>
+              <th scope="col">Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Registration will not complete; vendor number not received</td>
+              <td>Supplier Portal Support</td>
+              <td>(877) 435-7363<br><a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a></td>
+            </tr>
+            <tr>
+              <td>Certification status, eligibility, approved certifier questions</td>
+              <td>BISD Certification</td>
+              <td>717-783-3119<br><a href="mailto:RA-GSBDISBOCERT@pa.gov">RA-GSBDISBOCERT@pa.gov</a></td>
+            </tr>
+            <tr>
+              <td>eMarketplace access, IFB submission</td>
+              <td>General Bidding Help</td>
+              <td>(844) 724-7267<br><a href="mailto:srmhelp@pa.gov">srmhelp@pa.gov</a></td>
+            </tr>
+            <tr>
+              <td>JAGGAER login, RFP or ITQ submission</td>
+              <td>JAGGAER Support</td>
+              <td>(800) 233-1121, option 2</td>
+            </tr>
+            <tr>
+              <td>Invoice or payment status</td>
+              <td>Payment Inquiries</td>
+              <td><a href="mailto:ra-pscpaymentinquire@pa.gov">ra-pscpaymentinquire@pa.gov</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <p class="footnote">
+    Companion reference to the <strong>PA Commonwealth Supplier Quick Start Guide</strong>.
+    Information sourced from the
+    <a href="https://www.pa.gov/agencies/dgs" target="_blank" rel="noopener">Pennsylvania Department of General Services</a>
+    and BISD published guidance. Service levels are published targets, not guarantees.
+  </p>
+
+</main>
+
+<script>
+  document.querySelectorAll('.section-nav a').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', link.getAttribute('href'));
+    });
+  });
+</script>
+
+</body>
+</html>

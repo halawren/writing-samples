@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Documentation writing samples — Hannah Lawrence-Brown</title>
+<meta name="description" content="Four documentation samples covering three content types: a tutorial, a reference, and a how-to guide." />
+<style>
+  :root {
+    --ink:        #17191C;
+    --ink-soft:   #4B5159;
+    --ink-faint:  #7C838C;
+    --rule:       #E3E5E8;
+    --page:       #FBFBFA;
+    --card:       #FFFFFF;
+    --accent:     #1F4E7A;
+    --chip-bg:    #EEF2F6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #E8EAED; --ink-soft: #AEB5BD; --ink-faint: #848B94;
+      --rule: #2C3036; --page: #14161A; --card: #1B1E23;
+      --accent: #8AB4E0; --chip-bg: #24292F;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--page); color: var(--ink);
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 72px 24px 88px; }
+
+  header { padding-bottom: 30px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+  h1 { font-size: 1.55rem; font-weight: 650; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .byline { font-size: .95rem; color: var(--ink-faint); margin-bottom: 20px; }
+  .lede { font-size: 1.02rem; color: var(--ink-soft); }
+
+  a.doc {
+    display: block; text-decoration: none; color: inherit;
+    padding: 24px 0; border-bottom: 1px solid var(--rule);
+  }
+  a.doc:hover .title { color: var(--accent); text-decoration: underline; }
+  .chip {
+    display: inline-block; background: var(--chip-bg); color: var(--ink-soft);
+    font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+    margin-bottom: 9px;
+  }
+  .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+  .desc { font-size: .94rem; color: var(--ink-soft); }
+
+  .note { margin-top: 38px; font-size: .92rem; color: var(--ink-soft); }
+  .note h2 {
+    font-size: .74rem; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px;
+  }
+  .note p + p { margin-top: 11px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Documentation writing samples</h1>
+    <div class="byline">Hannah Lawrence-Brown</div>
+    <p class="lede">
+      Four documents covering three content types. Three of them document Pennsylvania's supplier
+      registration and procurement systems, from research on the Commonwealth's e-procurement redesign.
+      The fourth is written against Rippling's published App Shop integration documentation.
+    </p>
+  </header>
+
+  <a class="doc" href="pa-quickstart-guide.html">
+    <span class="chip">Tutorial</span>
+    <div class="title">Quick start guide: registration and certification</div>
+    <p class="desc">
+      Takes a small business from nothing to registered, certified and finding contract opportunities.
+      Conditional paths by business type, prerequisites before each step, time estimates per stage,
+      and a full Spanish translation.
+    </p>
+  </a>
+
+  <a class="doc" href="pa-systems-reference.html">
+    <span class="chip">Reference</span>
+    <div class="title">Supplier systems and identifier reference</div>
+    <p class="desc">
+      The structural counterpart to the guide. Which system owns what, which identifiers move between
+      them, what states a supplier record can hold, and what each certification status permits.
+    </p>
+  </a>
+
+  <a class="doc" href="pa-ealerts-howto.html">
+    <span class="chip">How-to guide</span>
+    <div class="title">Setting up E-Alerts for your NAICS codes</div>
+    <p class="desc">
+      One task end to end, including the part most procedural guides leave out: confirming it worked,
+      and diagnosing it when it hasn't. Expected result after every step, plus a troubleshooting reference.
+    </p>
+  </a>
+
+  <a class="doc" href="https://github.com/YOUR-USERNAME/writing-samples/blob/main/rippling/03-credential-lifecycle.md">
+    <span class="chip">Reference · Markdown source</span>
+    <div class="title">Credential lifecycle and troubleshooting</div>
+    <p class="desc">
+      Drafted for Rippling's App Shop Integrations documentation. Consolidates credential lifetimes,
+      reuse rules and renewal paths into one lifecycle table, with a troubleshooting reference for the
+      installation flow. Written in Markdown with frontmatter to match their docs-as-code setup.
+    </p>
+  </a>
+
+  <div class="note">
+    <h2>On the content types</h2>
+    <p>
+      A tutorial, a reference and a how-to guide answer different questions and fail in different ways.
+      A tutorial that stops to explain architecture loses the beginner it was written for. A reference page
+      that tries to teach becomes unsearchable. A how-to that assumes nothing turns into a tutorial and stops
+      being useful to the person who already knows the basics.
+    </p>
+    <p>
+      These were written as a set with that separation held deliberately, and they cross-reference each other
+      rather than repeating.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

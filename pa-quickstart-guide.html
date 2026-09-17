@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PA Commonwealth Supplier: Registration &amp; Certification Quick Start Guide</title>
+  <style>
+    /* ─── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --blue-deep:    #002F6C;
+      --blue-mid:     #0071BB;
+      --blue-light:   #E8F2FB;
+      --blue-lighter: #F0F7FF;
+      --gold:         #FFC72C;
+      --gold-dark:    #D4A500;
+      --green:        #059669;
+      --green-bg:     #ECFDF5;
+      --amber:        #D97706;
+      --amber-bg:     #FFFBEB;
+      --gray-bg:      #F2F5F9;
+      --gray-border:  #E2E8F0;
+      --text-dark:    #1A202C;
+      --text-mid:     #4A5568;
+      --text-light:   #718096;
+      --white:        #FFFFFF;
+      --shadow-sm:    0 1px 4px rgba(0,47,108,.07);
+      --shadow-md:    0 4px 16px rgba(0,47,108,.10);
+      --shadow-lg:    0 8px 28px rgba(0,47,108,.14);
+      --radius:       14px;
+    }
+
+    /* ─── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background: var(--gray-bg);
+    }
+    a { color: inherit; }
+
+    /* ─── Header ────────────────────────────────────────────── */
+    .site-header {
+      background: linear-gradient(150deg, var(--blue-deep) 0%, #004aad 100%);
+      color: var(--white);
+    }
+    .header-eyebrow {
+      background: rgba(0,0,0,.22);
+      text-align: center;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      color: rgba(255,255,255,.8);
+    }
+    .header-body {
+      text-align: center;
+      padding: 44px 20px 52px;
+    }
+    .header-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 24px;
+      padding: 5px 16px;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .header-body h1 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .header-body h1 span { color: var(--gold); }
+    .header-body .sub {
+      font-size: 1.05rem;
+      opacity: .88;
+      max-width: 600px;
+      margin: 0 auto 22px;
+    }
+    .header-rule {
+      width: 56px; height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+
+    /* ─── Progress Bar ──────────────────────────────────────── */
+    .progress-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+    }
+    .pb-step {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .pb-step + .pb-step::before {
+      content: '';
+      display: block;
+      width: clamp(24px, 5vw, 60px);
+      height: 2px;
+      background: var(--gray-border);
+      margin: 0 4px;
+    }
+    .pb-dot {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--blue-deep);
+      color: var(--white);
+      font-size: .82rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pb-label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      white-space: nowrap;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────────── */
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 14px;
+    }
+    .section { margin-bottom: 20px; }
+
+    /* ─── Cards ──────────────────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    /* ─── Pathway Selector ───────────────────────────────────── */
+    .pathway-card-wrap { padding: 32px 28px; }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blue-light);
+      color: var(--blue-mid);
+      padding: 3px 11px;
+      border-radius: 20px;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--blue-deep);
+      margin-bottom: 5px;
+    }
+    .section-sub {
+      color: var(--text-mid);
+      margin-bottom: 24px;
+      font-size: .96rem;
+    }
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 14px;
+    }
+    .path-tile {
+      border: 2px solid var(--gray-border);
+      border-radius: 10px;
+      padding: 22px 18px 18px;
+      cursor: pointer;
+      transition: all .22s ease;
+      text-align: center;
+      background: #FAFBFD;
+      position: relative;
+    }
+    .path-tile:hover {
+      border-color: var(--blue-mid);
+      background: var(--blue-lighter);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .path-tile.active {
+      border-color: var(--blue-deep);
+      background: var(--blue-light);
+      box-shadow: 0 0 0 3px rgba(0,47,108,.13);
+    }
+    .path-tile.active::after {
+      content: '✓ Selected';
+      position: absolute;
+      top: 10px; right: 10px;
+      background: var(--blue-deep);
+      color: var(--white);
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .path-emoji { font-size: 2.4rem; margin-bottom: 10px; display: block; }
+    .path-icon {
+      display: block;
+      margin: 0 auto 12px;
+      color: var(--blue-deep);
+    }
+    .path-tile h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 7px;
+    }
+    .path-tile p {
+      font-size: .85rem;
+      color: var(--text-mid);
+      line-height: 1.4;
+    }
+    .path-time {
+      display: inline-block;
+      margin-top: 11px;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 20px;
+      padding: 3px 11px;
+      font-size: .77rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+    }
+    .path-tile.active .path-time {
+      background: var(--blue-deep);
+      color: var(--white);
+      border-color: var(--blue-deep);
+    }
+
+    /* ─── Step Card ──────────────────────────────────────────── */
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 26px;
+      border-bottom: 1px solid var(--gray-border);
+      background: linear-gradient(to right, #F8FBFF, var(--white));
+    }
+    .step-num {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--blue-deep);
+      color: var(--white);
+      font-size: 1.35rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-head-text { flex: 1; }
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--blue-deep);
+    }
+    .step-sub {
+      font-size: .87rem;
+      color: var(--text-mid);
+      margin-top: 2px;
+    }
+    .step-badge {
+      background: var(--blue-light);
+      color: var(--blue-deep);
+      border: 1px solid rgba(0,113,187,.18);
+      padding: 5px 13px;
+      border-radius: 20px;
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .step-body { padding: 26px 26px 28px; }
+    .step-desc {
+      color: var(--text-mid);
+      margin-bottom: 18px;
+      font-size: .98rem;
+    }
+    .step-desc strong { color: var(--text-dark); }
+
+    /* ─── Callout Boxes ──────────────────────────────────────── */
+    .callout {
+      border-radius: 8px;
+      padding: 14px 17px;
+      margin: 14px 0;
+    }
+    .callout.amber  { background: var(--amber-bg);  border-left: 4px solid var(--amber); }
+    .callout.blue   { background: var(--blue-light); border-left: 4px solid var(--blue-mid); }
+    .callout.green  { background: var(--green-bg);  border-left: 4px solid var(--green); }
+    .callout h4 {
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+      margin-bottom: 9px;
+    }
+    .callout.amber h4 { color: #92400E; }
+    .callout.blue  h4 { color: var(--blue-deep); }
+    .callout.green h4 { color: #065F46; }
+    .callout ul { list-style: none; padding: 0; }
+    .callout li {
+      padding: 3px 0 3px 20px;
+      position: relative;
+      font-size: .91rem;
+    }
+    .callout.amber li { color: #78350F; }
+    .callout.blue  li { color: #1E3A8A; }
+    .callout.green li { color: #065F46; }
+    .callout li::before { position: absolute; left: 0; }
+    .callout.amber li::before { content: '→'; }
+    .callout.blue  li::before { content: '•'; color: var(--blue-mid); }
+    .callout.green li::before { content: '✓'; }
+    .callout a { font-weight: 600; text-decoration: underline; }
+    .callout.blue  a { color: var(--blue-deep); }
+    .callout.green a { color: #065F46; }
+
+    /* ─── Cert Path Panels ───────────────────────────────────── */
+    .cert-stack { display: flex; flex-direction: column; gap: 14px; }
+    .cert-panel {
+      border: 2px solid var(--gray-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: opacity .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .cert-panel.lit   { border-color: var(--blue-deep); background: var(--blue-lighter); }
+    .cert-panel.dim   { opacity: .38; pointer-events: none; }
+    .cert-panel-head  { display: flex; align-items: center; gap: 11px; margin-bottom: 11px; }
+    .cert-panel-title { font-size: 1rem; font-weight: 700; color: var(--blue-deep); flex: 1; }
+    .tag {
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+    .tag.instant { background: #D1FAE5; color: #065F46; }
+    .tag.fast    { background: #DBEAFE; color: #1E40AF; }
+    .tag.staged  { background: #FEF3C7; color: #92400E; }
+    .cert-panel-desc {
+      font-size: .91rem;
+      color: var(--text-mid);
+      margin-bottom: 13px;
+    }
+
+    /* ─── Opportunity Grid ───────────────────────────────────── */
+    .opp-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .opp-tile {
+      background: var(--blue-lighter);
+      border: 1px solid rgba(0,113,187,.18);
+      border-radius: 9px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .opp-tile .btn-row { margin-top: auto; padding-top: 10px; }
+    .opp-tile h4 {
+      font-size: .93rem;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 4px;
+    }
+    .opp-tile p { font-size: .84rem; color: var(--text-mid); }
+    .opp-tag {
+      display: inline-block;
+      margin-top: 8px;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    /* ─── Buttons ────────────────────────────────────────────── */
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: 7px;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: all .2s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .btn-primary {
+      background: var(--blue-deep);
+      color: var(--white);
+      border-color: var(--blue-deep);
+    }
+    .btn-primary:hover {
+      background: #001E4F;
+      border-color: #001E4F;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0,47,108,.30);
+    }
+    .btn-outline {
+      background: var(--white);
+      color: var(--blue-deep);
+      border-color: var(--blue-deep);
+    }
+    .btn-outline:hover { background: var(--blue-light); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-mid);
+      border-color: var(--gray-border);
+    }
+    .btn-ghost:hover { background: #f0f2f5; }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--blue-deep);
+      border-color: var(--gold);
+    }
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212,165,0,.35);
+    }
+    .btn-sm { padding: 7px 13px; font-size: .82rem; }
+
+    /* ─── Divider ─────────────────────────────────────────────── */
+    .rule { border: none; border-top: 1px solid var(--gray-border); margin: 20px 0; }
+
+    /* ─── Help / Contact Section ─────────────────────────────── */
+    .help-band {
+      background: linear-gradient(150deg, var(--blue-deep) 0%, #004aad 100%);
+      border-radius: var(--radius);
+      padding: 32px 28px 28px;
+      color: var(--white);
+    }
+    .help-band h2 { font-size: 1.45rem; font-weight: 800; margin-bottom: 5px; }
+    .help-band > p { opacity: .85; margin-bottom: 24px; font-size: .96rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .contact-tile {
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 9px;
+      padding: 15px 16px;
+    }
+    .contact-tile h4 {
+      font-size: .74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      opacity: .7;
+      margin-bottom: 5px;
+    }
+    .contact-tile .val { font-size: .98rem; font-weight: 700; }
+    .contact-tile .val a { color: var(--gold); text-decoration: none; }
+    .contact-tile .val a:hover { text-decoration: underline; }
+    .contact-tile .note { font-size: .78rem; opacity: .7; margin-top: 2px; }
+    .contact-tile .note a { color: rgba(255,199,44,.85); text-decoration: none; }
+    .contact-tile .note a:hover { text-decoration: underline; }
+    .help-cta { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+    abbr, abbr[title] { cursor: default !important; text-decoration: none !important; }
+
+    /* ─── Inline Help Panel ──────────────────────────────────── */
+    .help-panel {
+      margin-top: 10px;
+      background: var(--blue-light);
+      border-left: 4px solid var(--blue-mid);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: .91rem;
+      color: var(--blue-deep);
+    }
+    .help-panel strong { display: block; font-weight: 700; margin-bottom: 4px; }
+    .help-panel p { margin: 0; }
+    .help-panel a { color: var(--blue-deep); font-weight: 600; }
+
+    /* ─── Footer Note ─────────────────────────────────────────── */
+    .footnote {
+      text-align: center;
+      font-size: .79rem;
+      color: var(--text-light);
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-border);
+    }
+    .footnote a { color: var(--blue-mid); text-decoration: none; }
+    .footnote a:hover { text-decoration: underline; }
+
+    /* ─── Abbr tooltip ────────────────────────────────────────── */
+    abbr[title] {
+      border-bottom: 1px dashed var(--blue-mid);
+      cursor: help;
+      text-decoration: none;
+    }
+
+    /* ─── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 760px) {
+      .path-grid    { grid-template-columns: 1fr; }
+      .opp-grid     { grid-template-columns: 1fr; }
+      .progress-bar { display: none; }
+      .step-badge   { display: none; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .btn-row      { flex-direction: column; }
+      .btn          { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .contact-grid   { grid-template-columns: 1fr; }
+      .step-head      { flex-wrap: wrap; }
+      .cert-panel-head{ flex-wrap: wrap; }
+    }
+
+    /* ─── Tooltip ────────────────────────────────────────────── */
+    .tip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .tip-icon {
+      cursor: help;
+      font-size: .8em;
+      line-height: 1;
+    }
+    .tip-text {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1A202C;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 400;
+      line-height: 1.4;
+      padding: 7px 11px;
+      border-radius: 6px;
+      width: 240px;
+      white-space: normal;
+      z-index: 200;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      pointer-events: none;
+    }
+    .tip-text::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1A202C;
+    }
+    .tip:hover .tip-text,
+    .tip:focus-within .tip-text { display: block; }
+
+    /* ─── Language Toggle ─────────────────────────────────────── */
+    .lang-toggle-btn {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: .02em;
+      transition: background .15s;
+    }
+    .lang-toggle-btn:hover { background: rgba(255,255,255,0.28); }
+
+    /* ─── Print ───────────────────────────────────────────────── */
+    @media print {
+      body { background: white; }
+      .toolbar, .progress-bar { display: none; }
+      .card, .help-band { box-shadow: none; border: 1px solid #ccc; }
+      .site-header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .cert-panel.dim { opacity: 1; pointer-events: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="content-en">
+
+<!-- ══════════════════════ HEADER ══════════════════════════════ -->
+<header class="site-header">
+  <div class="header-eyebrow">
+    Commonwealth of Pennsylvania &nbsp;·&nbsp; Dept. of General Services &nbsp;·&nbsp; BISD
+  </div>
+  <div class="header-body">
+    <div class="header-pill">📋 Small Business Quick Start Guide</div>
+    <h1>Get Registered and Certified as a<br><span>PA Commonwealth Supplier</span></h1>
+    <p class="sub">A step-by-step guide to vendor registration, business certification (Small Business, SDB, VBE), and finding Commonwealth contract opportunities.</p>
+    <div class="header-rule"></div>
+    <button class="lang-toggle-btn" onclick="toggleLang('es')">🌐 Ver en Español</button>
+  </div>
+</header>
+
+<!-- ══════════════════════ PROGRESS BAR ════════════════════════ -->
+<nav class="progress-bar" aria-label="Steps overview">
+  <div class="pb-step"><div class="pb-dot">1</div><span class="pb-label">Register</span></div>
+  <div class="pb-step"><div class="pb-dot">2</div><span class="pb-label">Vendor Number</span></div>
+  <div class="pb-step"><div class="pb-dot">3</div><span class="pb-label">Get Certified</span></div>
+  <div class="pb-step"><div class="pb-dot">4</div><span class="pb-label">Find Opportunities</span></div>
+</nav>
+
+<!-- ══════════════════════ MAIN CONTENT ════════════════════════ -->
+<main class="wrap">
+
+  <!-- Print toolbar -->
+  <div class="toolbar">
+    <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨️ Print Guide</button>
+  </div>
+
+  <!-- ── CHOOSE YOUR PATH ──────────────────────────────────── -->
+  <section class="section card" id="sec-path">
+    <div class="pathway-card-wrap">
+      <div class="section-kicker">Before You Begin</div>
+      <h2 class="section-h2">Choose Your Business Type</h2>
+      <p class="section-sub">Select all that apply — you can choose more than one. This will highlight the steps most relevant to you.</p>
+
+      <div class="path-grid">
+        <div class="path-tile" id="tile-sb"  onclick="selectPath('sb')"  role="button" tabindex="0" aria-pressed="false">
+          <span class="path-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg></span>
+          <h3>Small Business (SB)</h3>
+          <p>Any small business meeting PA's size standards — 100 or fewer employees OR under $47M annual revenue</p>
+          <span class="path-time">⚡ ~15 min · Instant approval</span>
+        </div>
+        <div class="path-tile" id="tile-sdb" onclick="selectPath('sdb')" role="button" tabindex="0" aria-pressed="false">
+          <span class="path-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg></span>
+          <h3>Small Diverse Business (SDB)</h3>
+          <p>51%+ owned by minorities, women, persons with disabilities, or LGBTQIA+ members</p>
+          <span class="path-time">⏱️ &lt;10 days (w/ 3rd-party cert)</span>
+        </div>
+        <div class="path-tile" id="tile-vbe" onclick="selectPath('vbe')" role="button" tabindex="0" aria-pressed="false">
+          <span class="path-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></span>
+          <h3>Veteran Business Enterprise (VBE)</h3>
+          <p>51%+ owned by veterans or service-disabled veterans</p>
+          <span class="path-time">⏱️ &lt;10 days (w/ 3rd-party cert)</span>
+        </div>
+      </div>
+
+      <div class="callout blue" id="path-note" style="margin-top:16px; display:none;">
+        <h4>💡 Important Note for SDB &amp; VBE Paths</h4>
+        <ul>
+          <li>You must <strong>also</strong> meet the Small Business size criteria (≤100 employees OR &lt;$47M revenue)</li>
+          <li>If you already hold an approved third-party certificate (e.g., NMSDC, WBENC, CVE), PA verification takes <strong>less than 10 business days</strong></li>
+          <li>If you do <em>not</em> yet have a third-party certificate, allow <strong>1–90 days</strong> to obtain one before applying for <span class="tip">PA verification <span class="tip-icon" tabindex="0">ℹ️<span class="tip-text">PA's review of your third-party certificate to confirm eligibility for SDB or VBE status</span></span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 1 ─────────────────────────────────────────────── -->
+  <section class="section card" id="sec-1">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div class="step-head-text">
+        <div class="step-title">Register as a Commonwealth Supplier</div>
+        <div class="step-sub">Required for all businesses — complete before certification</div>
+      </div>
+      <div class="step-badge">⏱️ ~15–20 minutes</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        All businesses must register in the <strong>PA Supplier Portal</strong> to receive a vendor number.
+        This number is required for certification, bidding, and receiving payments from the Commonwealth.
+      </p>
+
+      <div class="callout amber">
+        <h4>📋 What You'll Need</h4>
+        <ul>
+          <li>Federal Tax ID (EIN) — or Social Security Number for sole proprietors</li>
+          <li>Legal business name, address, and primary contact information</li>
+          <li>NAICS code(s) for your products or services <span class="tip"><span class="tip-icon" tabindex="0">ℹ️<span class="tip-text">NAICS (North American Industry Classification System) codes identify what products or services your business provides. The Commonwealth uses them to match you with relevant contracts. Look yours up at census.gov/naics.</span></span></span></li>
+          <li>Banking information for direct deposit (ACH) payments</li>
+          <li>W-9 form details</li>
+        </ul>
+      </div>
+
+      <div class="btn-row">
+        <a href="https://www.pasupplierportal.state.pa.us/irj/portal/anonymous" class="btn btn-primary" target="_blank" rel="noopener">
+          Open PA Supplier Portal ↗
+        </a>
+        <a href="https://www.pa.gov/content/dam/copapwp-pagov/en/budget/documents/for-people-doing-business-with-the-commonwealth/for-vendors/procurement-registration-guide.pdf"
+           class="btn btn-outline" target="_blank" rel="noopener">
+          📄 Registration Guide (PDF)
+        </a>
+        <a href="https://www.pa.gov/services/dgs/register-as-new-commonwealth-of-pennsylvania-materials-and-services-supplier"
+           class="btn btn-ghost" target="_blank" rel="noopener">
+          Official Instructions
+        </a>
+        <button class="btn btn-ghost" onclick="toggleHelp(this)" aria-expanded="false" aria-controls="step1-help">
+          📞 Need help?
+        </button>
+      </div>
+
+      <div class="help-panel" id="step1-help" hidden>
+        <strong>Online Supplier Help</strong>
+        <p>Call <a href="tel:8774357363">(877) 435-7363</a> and hold for more information, or contact us by email: <a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 2 ─────────────────────────────────────────────── -->
+  <section class="section card" id="sec-2">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div class="step-head-text">
+        <div class="step-title">Receive Your Vendor Number</div>
+        <div class="step-sub">Wait for your email confirmation, then save your number</div>
+      </div>
+      <div class="step-badge">⏱️ 1–3 business days</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        After submitting your registration, the Commonwealth will issue your unique <strong>vendor number</strong> by email.
+        This number is required for Step 3 certification and for receiving payments.
+      </p>
+
+      <div class="callout green">
+        <h4>✅ Tips for This Step</h4>
+        <ul>
+          <li>Check your spam / junk folder if you don't receive confirmation within 3 business days</li>
+          <li>Save your vendor number — it is required for certification and payment processing</li>
+          <li>You can track registration status or update your account at any time via the <a href="https://www.pasupplierportal.state.pa.us/irj/portal/anonymous" target="_blank" rel="noopener">Supplier Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="callout blue">
+        <h4>📞 Registration Support</h4>
+        <ul>
+          <li>Phone: <strong>(877) 435-7363</strong></li>
+          <li>Email: <a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STEP 3 ─────────────────────────────────────────────── -->
+  <section class="section card" id="sec-3">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div class="step-head-text">
+        <div class="step-title">Get Certified</div>
+        <div class="step-sub">All certifications are managed through the PRISM Compliance portal</div>
+      </div>
+      <div class="step-badge">⏱️ Instant to 90 days</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        PA's Bureau of Diversity, Inclusion &amp; Small Business Opportunities (BISD)
+        manages all certifications through the <strong>PRISM Compliance portal</strong>.
+        Select the panel for your path below.
+      </p>
+
+      <div class="cert-stack">
+
+        <!-- SB Panel -->
+        <div class="cert-panel" id="panel-sb">
+          <div class="cert-panel-head">
+            <span style="color:var(--blue-deep);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg></span>
+            <span class="cert-panel-title">Small Business (SB) Self-Certification</span>
+            <span class="tag instant">⚡ Instant</span>
+          </div>
+          <p class="cert-panel-desc">
+            Self-certify directly with DGS if your business meets the size standards below.
+            No third-party certificate required — approval is immediate upon submission.
+          </p>
+          <div class="callout blue" style="margin-bottom:12px;">
+            <h4>📋 Eligibility Criteria</h4>
+            <ul>
+              <li>100 or fewer full-time equivalent employees, <strong>OR</strong></li>
+              <li>Less than $47 million in annual gross revenue</li>
+            </ul>
+          </div>
+          <div class="callout green" style="margin-bottom:12px;">
+            <h4>✅ Tip</h4>
+            <ul>
+              <li>Follow the <strong>Self-Certify button</strong> below and click <strong>"Self-Certify or Recertify as a Small, Diverse, and/or Veteran Business"</strong> and complete the form.</li>
+            </ul>
+          </div>
+          <div class="btn-row">
+            <a href="http://bdisbo.prismcompliance.com/" class="btn btn-primary" target="_blank" rel="noopener">
+              Self-Certify as Small Business ↗
+            </a>
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/get-started-doing-business-with-the-commonwealth"
+               class="btn btn-ghost" target="_blank" rel="noopener">
+              Official Instructions
+            </a>
+            <a href="https://www.pa.gov/services/dgs/self-certify-my-small-business" class="btn btn-ghost" target="_blank" rel="noopener">
+              Additional Resource
+            </a>
+          </div>
+        </div>
+
+        <!-- SDB Panel -->
+        <div class="cert-panel" id="panel-sdb">
+          <div class="cert-panel-head">
+            <span style="color:var(--blue-deep);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg></span>
+            <span class="cert-panel-title">Small Diverse Business (SDB) Verification</span>
+            <span class="tag fast">⏱️ &lt;10 business days</span>
+          </div>
+          <p class="cert-panel-desc">
+            Must meet Small Business size criteria AND hold a valid third-party diversity certificate.
+            PA then verifies your eligibility — typically within 10 business days of a complete submission.
+          </p>
+          <div class="callout amber" style="margin-bottom:12px;">
+            <h4>⚠️ Don't Have a Third-Party Certificate Yet?</h4>
+            <ul>
+              <li>You must obtain a third-party certificate first — allow <strong>1–90 days</strong> depending on the certifying organization</li>
+              <li>Check PA's approved certifier list before applying externally</li>
+            </ul>
+            <a href="https://www.pa.gov/services/dgs/verify-my-small-diverse-business-or-veteran-business" class="btn btn-outline btn-sm" target="_blank" rel="noopener" style="margin-top:8px;">PA's Approved Certifier List ↗</a>
+          </div>
+          <div class="callout blue" style="margin-bottom:12px;">
+            <h4>📋 Eligible Diverse Categories</h4>
+            <ul>
+              <li>Minority-owned business (MBE)</li>
+              <li>Women-owned business (WBE)</li>
+              <li>Disability-owned business (DOBE)</li>
+              <li>LGBTQIA+-owned business</li>
+            </ul>
+          </div>
+          <div class="callout green" style="margin-bottom:12px;">
+            <h4>✅ Tip</h4>
+            <ul>
+              <li>Follow the <strong>Apply button</strong> below and click <strong>"Self-Certify or Recertify as a Small, Diverse, and/or Veteran Business"</strong> and complete the form.</li>
+            </ul>
+          </div>
+
+          <div class="btn-row">
+            <a href="http://bdisbo.prismcompliance.com/" class="btn btn-primary" target="_blank" rel="noopener">
+              Apply for SDB Verification ↗
+            </a>
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/get-started-doing-business-with-the-commonwealth"
+               class="btn btn-ghost" target="_blank" rel="noopener">
+              Official Instructions
+            </a>
+          </div>
+        </div>
+
+        <!-- VBE Panel -->
+        <div class="cert-panel" id="panel-vbe">
+          <div class="cert-panel-head">
+            <span style="color:var(--blue-deep);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></span>
+            <span class="cert-panel-title">Veteran Business Enterprise (VBE) Verification</span>
+            <span class="tag fast">⏱️ &lt;10 business days</span>
+          </div>
+          <p class="cert-panel-desc">
+            Must meet Small Business size criteria AND hold a valid veteran-specific third-party certificate.
+            Covers both Veteran-Owned (VOB) and
+            Service-Disabled Veteran-Owned (SDVOB) businesses.
+          </p>
+          <div class="callout amber" style="margin-bottom:12px;">
+            <h4>⚠️ Don't Have a Third-Party Certificate Yet?</h4>
+            <ul>
+              <li>You must obtain a third-party certificate first — allow <strong>1–90 days</strong> depending on the certifying organization</li>
+              <li>Approved veteran certifiers include: CVE (VA), NaVOBA, and others</li>
+              <li>Check PA's approved certifier list before applying externally</li>
+            </ul>
+            <a href="https://www.pa.gov/services/dgs/verify-my-small-diverse-business-or-veteran-business" class="btn btn-outline btn-sm" target="_blank" rel="noopener" style="margin-top:8px;">PA's Approved Certifier List ↗</a>
+          </div>
+          <div class="callout green" style="margin-bottom:12px;">
+            <h4>✅ Tip</h4>
+            <ul>
+              <li>Follow the <strong>Apply button</strong> below and click <strong>"Self-Certify or Recertify as a Small, Diverse, and/or Veteran Business"</strong> and complete the form.</li>
+            </ul>
+          </div>
+          <div class="btn-row">
+            <a href="http://bdisbo.prismcompliance.com/" class="btn btn-primary" target="_blank" rel="noopener">
+              Apply for VBE Verification ↗
+            </a>
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/get-started-doing-business-with-the-commonwealth"
+               class="btn btn-ghost" target="_blank" rel="noopener">
+              Official Instructions
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /cert-stack -->
+
+
+      <div class="btn-row" style="margin-top:12px; justify-content:center;">
+        <button class="btn btn-ghost" onclick="toggleHelp(this)" aria-expanded="false" aria-controls="sec3-help">
+          📞 Need Certification Help?
+        </button>
+      </div>
+
+      <div class="help-panel" id="sec3-help" hidden>
+        <strong>Certification Support</strong>
+        <p>Call <a href="tel:7177833119">717-783-3119</a> or email <a href="mailto:RA-GSBDISBOCERT@pa.gov">RA-GSBDISBOCERT@pa.gov</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── STEP 4 ─────────────────────────────────────────────── -->
+  <section class="section card" id="sec-4">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div class="step-head-text">
+        <div class="step-title">Find &amp; Respond to Opportunities</div>
+        <div class="step-sub">Search active contracts, set alerts, and submit bids</div>
+      </div>
+      <div class="step-badge">Ongoing</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        The Commonwealth uses multiple platforms depending on contract type.
+        Use <strong>eMarketplace</strong> for competitive bids and <strong>JAGGAER</strong> for proposals and qualifications.
+        Set up <strong>E-Alerts</strong> so you never miss a new opportunity.
+      </p>
+
+      <a href="http://www.dgs.internet.state.pa.us/EAlerts_V2/Login.aspx" class="btn btn-primary" target="_blank" rel="noopener" style="display:block; text-align:center; margin-bottom:16px;">
+        🔔 Set Up E-Alerts — Get notified about new solicitations matching your NAICS codes ↗
+      </a>
+
+      <div class="opp-grid">
+        <div class="opp-tile">
+          <h4>eMarketplace</h4>
+          <p>Primary platform for IFBs (Invitation for Bid — lowest price wins) and general competitive bids open to all registered suppliers.</p>
+          <span class="opp-tag">IFBs · Competitive Bids</span>
+          <div class="btn-row">
+            <a href="https://www.emarketplace.state.pa.us" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Open eMarketplace ↗</a>
+          </div>
+        </div>
+        <div class="opp-tile">
+          <h4>JAGGAER (SciQuest)</h4>
+          <p>Used for RFPs (Request for Proposal), ITQs (Invitation to Qualify), RFQUALs, and other complex solicitations.</p>
+          <span class="opp-tag">RFPs · ITQs · R3-RFQ · SFP <span class="tip"><span class="tip-icon" tabindex="0">ℹ️<span class="tip-text">RFP (Request for Proposal): Evaluated on value, not just price. ITQ (Invitation to Qualify): Pre-qualification contracts. R3-RFQ (Request for Qualified Applicants): Used for P3 projects. SFP (Simplified for Purchase): Streamlined procurement for smaller purchases.</span></span></span></span>
+          <div class="btn-row">
+            <a href="https://solutions.sciquest.com/apps/Router/SupplierLogin" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Open JAGGAER ↗</a>
+          </div>
+        </div>
+        <div class="opp-tile">
+          <h4>COSTARS Program</h4>
+          <p>Cooperative purchasing program — local agencies (schools, municipalities, non-profits) can purchase from active Commonwealth contracts.</p>
+          <span class="opp-tag">Local Govt · Schools · Non-profits</span>
+          <div class="btn-row">
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/costars" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Learn About COSTARS ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout green">
+        <h4>🎯 More Ways to Grow Your Business with the Commonwealth</h4>
+        <ul>
+          <li><a href="https://www.pa.gov/services/dgs/apply-to-participate-in-the-pennsylvania-mentor-protege-program1" target="_blank" rel="noopener">Apply to Participate in the Pennsylvania Mentor-Protégé Program ↗</a></li>
+          <li><a href="https://www.pa.gov/agencies/dgs/programs-and-services/costars/training-center" target="_blank" rel="noopener">Get training on becoming a COSTARS Superstar ↗</a></li>
+          <li>Watch the <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/small-and-diverse-business-resources" target="_blank" rel="noopener">BISD Goal Setting and Small Business Reserve training video ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-row" style="margin-top:6px;">
+        <a href="https://www.pa.gov/agencies/dgs/procurement-resources/supplier-service-center"
+           class="btn btn-primary" target="_blank" rel="noopener">
+          Visit Supplier Service Center ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HELP / CONTACT ─────────────────────────────────────── -->
+  <section class="section help-band">
+    <h2>Need Help? We're Here.</h2>
+    <p>The PA Supplier Service Center assists with registration, certification, bidding, and payments. Resources are available in English and Spanish.</p>
+
+    <div class="contact-grid">
+      <div class="contact-tile">
+        <h4>Supplier Portal Support</h4>
+        <div class="val"><a href="tel:8774357363">(877) 435-7363</a></div>
+        <div class="note"><a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a></div>
+        <div class="note">Registration · Vendor #</div>
+      </div>
+      <div class="contact-tile">
+        <h4>General Bidding Help</h4>
+        <div class="val"><a href="tel:8447247267">(844) 724-7267</a></div>
+        <div class="note"><a href="mailto:srmhelp@pa.gov">srmhelp@pa.gov</a></div>
+        <div class="note">eMarketplace · IFB support</div>
+      </div>
+      <div class="contact-tile">
+        <h4>JAGGAER Support</h4>
+        <div class="val"><a href="tel:8002331121">(800) 233-1121</a></div>
+        <div class="note">Option 2 — supplier assistance</div>
+        <div class="note">RFPs · ITQs · SFP</div>
+      </div>
+      <div class="contact-tile">
+        <h4>Payment Inquiries</h4>
+        <div class="val"><a href="mailto:ra-pscpaymentinquire@pa.gov">Email Payment Team</a></div>
+        <div class="note"><a href="mailto:ra-pscpaymentinquire@pa.gov">ra-pscpaymentinquire@pa.gov</a></div>
+        <div class="note">Invoice &amp; payment status</div>
+      </div>
+      <div class="contact-tile" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <h4 style="margin: 0;">Small, Diverse, and Veteran Business Support</h4>
+        <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/contact-us" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Contact BISD ↗</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footnote -->
+  <p class="footnote">
+    Information sourced from the
+    <a href="https://www.pa.gov/agencies/dgs" target="_blank" rel="noopener">Pennsylvania Department of General Services (DGS)</a>,
+    <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo" target="_blank" rel="noopener">BISD</a>, and the
+    <a href="https://www.pa.gov/agencies/dgs/procurement-resources/supplier-service-center" target="_blank" rel="noopener">PA Supplier Service Center</a>.
+    Last verified March 2026. Always confirm current requirements at
+    <a href="https://www.pa.gov" target="_blank" rel="noopener">pa.gov</a>.
+  </p>
+
+</main>
+
+</div><!-- /content-en -->
+
+<!-- ══════════════════════ SPANISH VERSION ═════════════════════ -->
+<div id="content-es" hidden>
+
+<header class="site-header">
+  <div class="header-eyebrow">
+    Mancomunidad de Pensilvania &nbsp;·&nbsp; Depto. de Servicios Generales &nbsp;·&nbsp; BISD
+  </div>
+  <div class="header-body">
+    <div class="header-pill">📋 Guía de Inicio Rápido para Pequeños Negocios</div>
+    <h1>Regístrese y Certifíquese como<br><span>Proveedor de la Mancomunidad de PA</span></h1>
+    <p class="sub">Una guía paso a paso para el registro de proveedores, la certificación empresarial (Pequeño Negocio, SDB, VBE) y cómo encontrar oportunidades de contratos con la Mancomunidad.</p>
+    <div class="header-rule"></div>
+    <button class="lang-toggle-btn" onclick="toggleLang('en')">🌐 View in English</button>
+  </div>
+</header>
+
+<nav class="progress-bar" aria-label="Resumen de pasos">
+  <div class="pb-step"><div class="pb-dot">1</div><span class="pb-label">Registrarse</span></div>
+  <div class="pb-step"><div class="pb-dot">2</div><span class="pb-label">Núm. de Proveedor</span></div>
+  <div class="pb-step"><div class="pb-dot">3</div><span class="pb-label">Certificarse</span></div>
+  <div class="pb-step"><div class="pb-dot">4</div><span class="pb-label">Oportunidades</span></div>
+</nav>
+
+<main class="wrap">
+
+  <div class="toolbar">
+    <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨️ Imprimir Guía</button>
+  </div>
+
+  <!-- ── ELEGIR TIPO DE NEGOCIO ──────────────────────────────── -->
+  <section class="section card" id="sec-path-es">
+    <div class="pathway-card-wrap">
+      <div class="section-kicker">Antes de Comenzar</div>
+      <h2 class="section-h2">Elija Su Tipo de Negocio</h2>
+      <p class="section-sub">Seleccione la opción que mejor describa su negocio. Esto resaltará los pasos más relevantes para usted.</p>
+
+      <div class="path-grid">
+        <div class="path-tile" id="tile-sb-es" onclick="selectPathEs('sb')" role="button" tabindex="0" aria-pressed="false">
+          <span class="path-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg></span>
+          <h3>Pequeño Negocio (SB)</h3>
+          <p>Cualquier pequeño negocio que cumpla con los estándares de tamaño de PA — 100 empleados o menos O ingresos anuales menores de $47 millones</p>
+          <span class="path-time">⚡ ~15 min · Aprobación inmediata</span>
+        </div>
+        <div class="path-tile" id="tile-sdb-es" onclick="selectPathEs('sdb')" role="button" tabindex="0" aria-pressed="false">
+          <span class="path-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg></span>
+          <h3>Pequeño Negocio Diverso (SDB)</h3>
+          <p>51%+ de propiedad de minorías, mujeres, personas con discapacidades o miembros LGBTQIA+</p>
+          <span class="path-time">⏱️ &lt;10 días (con cert. de terceros)</span>
+        </div>
+        <div class="path-tile" id="tile-vbe-es" onclick="selectPathEs('vbe')" role="button" tabindex="0" aria-pressed="false">
+          <span class="path-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></span>
+          <h3>Empresa de Negocios de Veteranos (VBE)</h3>
+          <p>51%+ de propiedad de veteranos o veteranos con discapacidad de servicio</p>
+          <span class="path-time">⏱️ &lt;10 días (con cert. de terceros)</span>
+        </div>
+      </div>
+
+      <div class="callout blue" id="path-note-es" style="margin-top:16px; display:none;">
+        <h4>💡 Nota Importante para los Caminos SDB y VBE</h4>
+        <ul>
+          <li>También debe cumplir con los criterios de tamaño de Pequeño Negocio (≤100 empleados O &lt;$47M de ingresos)</li>
+          <li>Si ya tiene un certificado aprobado de terceros (p. ej., NMSDC, WBENC, CVE), la verificación de PA toma <strong>menos de 10 días hábiles</strong></li>
+          <li>Si <em>aún no</em> tiene un certificado de terceros, permita <strong>1–90 días</strong> para obtener uno antes de solicitar la <span class="tip">verificación de PA <span class="tip-icon" tabindex="0">ℹ️<span class="tip-text">Revisión de PA de su certificado de terceros para confirmar elegibilidad para el estado SDB o VBE</span></span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PASO 1 ──────────────────────────────────────────────── -->
+  <section class="section card" id="sec-1-es">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div class="step-head-text">
+        <div class="step-title">Regístrese como Proveedor de la Mancomunidad</div>
+        <div class="step-sub">Requerido para todos los negocios — completar antes de la certificación</div>
+      </div>
+      <div class="step-badge">⏱️ ~15–20 minutos</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        Todos los negocios deben registrarse en el <strong>Portal de Proveedores de PA</strong> para recibir un número de proveedor.
+        Este número es requerido para la certificación, las licitaciones y recibir pagos de la Mancomunidad.
+      </p>
+
+      <div class="callout amber">
+        <h4>📋 Lo Que Necesitará</h4>
+        <ul>
+          <li>Número de Identificación Fiscal Federal (EIN) — o Número de Seguro Social para propietarios únicos</li>
+          <li>Nombre legal del negocio, dirección e información de contacto principal</li>
+          <li>Código(s) NAICS para sus productos o servicios <span class="tip"><span class="tip-icon" tabindex="0">ℹ️<span class="tip-text">Los códigos NAICS (Sistema de Clasificación Industrial de América del Norte) identifican qué productos o servicios ofrece su negocio. La Mancomunidad los usa para emparejarlo con contratos relevantes. Búsquelos en census.gov/naics.</span></span></span></li>
+          <li>Información bancaria para pagos por depósito directo (ACH)</li>
+          <li>Datos del formulario W-9</li>
+        </ul>
+      </div>
+
+      <div class="btn-row">
+        <a href="https://www.pasupplierportal.state.pa.us/irj/portal/anonymous" class="btn btn-primary" target="_blank" rel="noopener">
+          Abrir Portal de Proveedores de PA ↗
+        </a>
+        <a href="https://www.pa.gov/content/dam/copapwp-pagov/en/budget/documents/for-people-doing-business-with-the-commonwealth/for-vendors/procurement-registration-guide.pdf"
+           class="btn btn-outline" target="_blank" rel="noopener">
+          📄 Guía de Registro (PDF)
+        </a>
+        <a href="https://www.pa.gov/services/dgs/register-as-new-commonwealth-of-pennsylvania-materials-and-services-supplier"
+           class="btn btn-ghost" target="_blank" rel="noopener">
+          Instrucciones Oficiales
+        </a>
+        <button class="btn btn-ghost" onclick="toggleHelp(this)" aria-expanded="false" aria-controls="step1-help-es">
+          📞 ¿Necesita ayuda?
+        </button>
+      </div>
+
+      <div class="help-panel" id="step1-help-es" hidden>
+        <strong>Ayuda en Línea para Proveedores</strong>
+        <p>Llame al <a href="tel:8774357363">(877) 435-7363</a> y espere para más información, o contáctenos por correo: <a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PASO 2 ──────────────────────────────────────────────── -->
+  <section class="section card" id="sec-2-es">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div class="step-head-text">
+        <div class="step-title">Reciba Su Número de Proveedor</div>
+        <div class="step-sub">Espere la confirmación por correo electrónico, luego guarde su número</div>
+      </div>
+      <div class="step-badge">⏱️ 1–3 días hábiles</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        Después de enviar su registro, la Mancomunidad le enviará su <strong>número de proveedor</strong> único por correo electrónico.
+        Este número es requerido para la certificación del Paso 3 y para recibir pagos.
+      </p>
+
+      <div class="callout green">
+        <h4>✅ Consejos para Este Paso</h4>
+        <ul>
+          <li>Revise su carpeta de correo no deseado si no recibe confirmación dentro de 3 días hábiles</li>
+          <li>Guarde su número de proveedor — es requerido para la certificación y el procesamiento de pagos</li>
+          <li>Puede rastrear el estado del registro o actualizar su cuenta en cualquier momento a través del <a href="https://www.pasupplierportal.state.pa.us/irj/portal/anonymous" target="_blank" rel="noopener">Portal de Proveedores</a></li>
+        </ul>
+      </div>
+
+      <div class="callout blue">
+        <h4>📞 Soporte de Registro</h4>
+        <ul>
+          <li>Teléfono: <strong>(877) 435-7363</strong></li>
+          <li>Correo: <a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PASO 3 ──────────────────────────────────────────────── -->
+  <section class="section card" id="sec-3-es">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div class="step-head-text">
+        <div class="step-title">Certifíquese</div>
+        <div class="step-sub">Todas las certificaciones se gestionan a través del portal PRISM Compliance</div>
+      </div>
+      <div class="step-badge">⏱️ Instantáneo a 90 días</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        La Oficina de Diversidad, Inclusión y Oportunidades para Pequeños Negocios de PA (BISD)
+        gestiona todas las certificaciones a través del <strong>portal PRISM Compliance</strong>.
+        Seleccione el panel para su camino a continuación.
+      </p>
+
+      <div class="cert-stack">
+
+        <!-- SB Panel ES -->
+        <div class="cert-panel" id="panel-sb-es">
+          <div class="cert-panel-head">
+            <span style="color:var(--blue-deep);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg></span>
+            <span class="cert-panel-title">Autocertificación de Pequeño Negocio (SB)</span>
+            <span class="tag instant">⚡ Instantáneo</span>
+          </div>
+          <p class="cert-panel-desc">
+            Autocertifíquese directamente con DGS si su negocio cumple con los estándares de tamaño a continuación.
+            No se requiere certificado de terceros — la aprobación es inmediata al enviar.
+          </p>
+          <div class="callout blue" style="margin-bottom:12px;">
+            <h4>📋 Criterios de Elegibilidad</h4>
+            <ul>
+              <li>100 o menos empleados equivalentes a tiempo completo, <strong>O</strong></li>
+              <li>Menos de $47 millones en ingresos brutos anuales</li>
+            </ul>
+          </div>
+          <div class="callout green" style="margin-bottom:12px;">
+            <h4>✅ Consejo</h4>
+            <ul>
+              <li>Siga el botón <strong>Autocertificar</strong> a continuación y haga clic en <strong>"Autocertificar o Recertificar como Pequeño Negocio Diverso y/o Empresa de Veteranos"</strong> y complete el formulario.</li>
+            </ul>
+          </div>
+          <div class="btn-row">
+            <a href="http://bdisbo.prismcompliance.com/" class="btn btn-primary" target="_blank" rel="noopener">
+              Autocertificar como Pequeño Negocio ↗
+            </a>
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/get-started-doing-business-with-the-commonwealth"
+               class="btn btn-ghost" target="_blank" rel="noopener">
+              Instrucciones Oficiales
+            </a>
+            <a href="https://www.pa.gov/services/dgs/self-certify-my-small-business" class="btn btn-ghost" target="_blank" rel="noopener">
+              Recurso Adicional
+            </a>
+            <button class="btn btn-ghost" onclick="toggleHelp(this)" aria-expanded="false" aria-controls="step3-sb-help-es">
+              📞 ¿Necesita ayuda?
+            </button>
+          </div>
+          <div class="help-panel" id="step3-sb-help-es" hidden>
+            <strong>Soporte de Certificación</strong>
+            <p>Contáctenos por correo: <a href="mailto:RA-SmallBusiness@pa.gov">RA-SmallBusiness@pa.gov</a>.</p>
+          </div>
+        </div>
+
+        <!-- SDB Panel ES -->
+        <div class="cert-panel" id="panel-sdb-es">
+          <div class="cert-panel-head">
+            <span style="color:var(--blue-deep);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg></span>
+            <span class="cert-panel-title">Verificación de Pequeño Negocio Diverso (SDB)</span>
+            <span class="tag fast">⏱️ &lt;10 días hábiles</span>
+          </div>
+          <p class="cert-panel-desc">
+            Debe cumplir con los criterios de tamaño de Pequeño Negocio Y tener un certificado de diversidad válido de terceros.
+            PA luego verifica su elegibilidad — típicamente dentro de 10 días hábiles de una presentación completa.
+          </p>
+          <div class="callout amber" style="margin-bottom:12px;">
+            <h4>⚠️ ¿Aún No Tiene un Certificado de Terceros?</h4>
+            <ul>
+              <li>Primero debe obtener un certificado de terceros — permita <strong>1–90 días</strong> dependiendo de la organización certificadora</li>
+              <li>Consulte la lista de certificadores aprobados de PA antes de solicitar externamente</li>
+            </ul>
+            <a href="https://www.pa.gov/services/dgs/verify-my-small-diverse-business-or-veteran-business" class="btn btn-outline btn-sm" target="_blank" rel="noopener" style="margin-top:8px;">Lista de Certificadores Aprobados de PA ↗</a>
+          </div>
+          <div class="callout blue" style="margin-bottom:12px;">
+            <h4>📋 Categorías Diversas Elegibles</h4>
+            <ul>
+              <li>Negocio de propiedad de minorías (MBE)</li>
+              <li>Negocio de propiedad de mujeres (WBE)</li>
+              <li>Negocio de propiedad de personas con discapacidades (DOBE)</li>
+              <li>Negocio de propiedad LGBTQIA+</li>
+            </ul>
+          </div>
+          <div class="callout green" style="margin-bottom:12px;">
+            <h4>✅ Consejo</h4>
+            <ul>
+              <li>Siga el botón <strong>Solicitar</strong> a continuación y haga clic en <strong>"Autocertificar o Recertificar como Pequeño Negocio Diverso y/o Empresa de Veteranos"</strong> y complete el formulario.</li>
+            </ul>
+          </div>
+          <div class="btn-row">
+            <a href="http://bdisbo.prismcompliance.com/" class="btn btn-primary" target="_blank" rel="noopener">
+              Solicitar Verificación SDB ↗
+            </a>
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/get-started-doing-business-with-the-commonwealth"
+               class="btn btn-ghost" target="_blank" rel="noopener">
+              Instrucciones Oficiales
+            </a>
+          </div>
+        </div>
+
+        <!-- VBE Panel ES -->
+        <div class="cert-panel" id="panel-vbe-es">
+          <div class="cert-panel-head">
+            <span style="color:var(--blue-deep);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></span>
+            <span class="cert-panel-title">Verificación de Empresa de Negocios de Veteranos (VBE)</span>
+            <span class="tag fast">⏱️ &lt;10 días hábiles</span>
+          </div>
+          <p class="cert-panel-desc">
+            Debe cumplir con los criterios de tamaño de Pequeño Negocio Y tener un certificado válido de terceros específico para veteranos.
+            Cubre negocios Propiedad de Veteranos (VOB) y Propiedad de Veteranos con Discapacidad de Servicio (SDVOB).
+          </p>
+          <div class="callout amber" style="margin-bottom:12px;">
+            <h4>⚠️ ¿Aún No Tiene un Certificado de Terceros?</h4>
+            <ul>
+              <li>Primero debe obtener un certificado de terceros — permita <strong>1–90 días</strong> dependiendo de la organización certificadora</li>
+              <li>Los certificadores aprobados de veteranos incluyen: CVE (VA), NaVOBA y otros</li>
+              <li>Consulte la lista de certificadores aprobados de PA antes de solicitar externamente</li>
+            </ul>
+            <a href="https://www.pa.gov/services/dgs/verify-my-small-diverse-business-or-veteran-business" class="btn btn-outline btn-sm" target="_blank" rel="noopener" style="margin-top:8px;">Lista de Certificadores Aprobados de PA ↗</a>
+          </div>
+          <div class="callout green" style="margin-bottom:12px;">
+            <h4>✅ Consejo</h4>
+            <ul>
+              <li>Siga el botón <strong>Solicitar</strong> a continuación y haga clic en <strong>"Autocertificar o Recertificar como Pequeño Negocio Diverso y/o Empresa de Veteranos"</strong> y complete el formulario.</li>
+            </ul>
+          </div>
+          <div class="btn-row">
+            <a href="http://bdisbo.prismcompliance.com/" class="btn btn-primary" target="_blank" rel="noopener">
+              Solicitar Verificación VBE ↗
+            </a>
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/get-started-doing-business-with-the-commonwealth"
+               class="btn btn-ghost" target="_blank" rel="noopener">
+              Instrucciones Oficiales
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /cert-stack -->
+
+      <div class="btn-row" style="margin-top:12px; justify-content:center;">
+        <button class="btn btn-ghost" onclick="toggleHelp(this)" aria-expanded="false" aria-controls="sec3-help-es">
+          📞 ¿Necesita Ayuda con la Certificación?
+        </button>
+      </div>
+
+      <div class="help-panel" id="sec3-help-es" hidden>
+        <strong>Soporte de Certificación</strong>
+        <p>Llame al <a href="tel:7177833119">717-783-3119</a> o envíe un correo a <a href="mailto:RA-GSBDISBOCERT@pa.gov">RA-GSBDISBOCERT@pa.gov</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PASO 4 ──────────────────────────────────────────────── -->
+  <section class="section card" id="sec-4-es">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div class="step-head-text">
+        <div class="step-title">Encuentre y Responda a Oportunidades</div>
+        <div class="step-sub">Busque contratos activos, configure alertas y envíe propuestas</div>
+      </div>
+      <div class="step-badge">Continuo</div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">
+        La Mancomunidad usa múltiples plataformas según el tipo de contrato.
+        Use <strong>eMarketplace</strong> para licitaciones competitivas y <strong>JAGGAER</strong> para propuestas y calificaciones.
+        Configure <strong>E-Alerts</strong> para no perderse ninguna nueva oportunidad.
+      </p>
+
+      <a href="http://www.dgs.internet.state.pa.us/EAlerts_V2/Login.aspx" class="btn btn-primary" target="_blank" rel="noopener" style="display:block; text-align:center; margin-bottom:16px;">
+        🔔 Configurar E-Alerts — Reciba notificaciones sobre nuevas solicitudes que coincidan con sus códigos NAICS ↗
+      </a>
+
+      <div class="opp-grid">
+        <div class="opp-tile">
+          <h4>eMarketplace</h4>
+          <p>Plataforma principal para IFBs (Invitación a Licitar — gana el precio más bajo) y licitaciones competitivas generales abiertas a todos los proveedores registrados.</p>
+          <span class="opp-tag">IFBs · Licitaciones Competitivas</span>
+          <div class="btn-row">
+            <a href="https://www.emarketplace.state.pa.us" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Abrir eMarketplace ↗</a>
+          </div>
+        </div>
+        <div class="opp-tile">
+          <h4>JAGGAER (SciQuest)</h4>
+          <p>Usado para RFPs (Solicitud de Propuesta), ITQs (Invitación a Calificar), RFQUALs y otras solicitudes complejas.</p>
+          <span class="opp-tag">RFPs · ITQs · R3-RFQ · SFP <span class="tip"><span class="tip-icon" tabindex="0">ℹ️<span class="tip-text">RFP (Solicitud de Propuesta): Se evalúa por valor, no solo precio. ITQ (Invitación a Calificar): Contratos de precalificación. R3-RFQ (Solicitud de Candidatos Calificados): Usado para proyectos P3. SFP (Compra Simplificada): Adquisición simplificada para compras menores.</span></span></span></span>
+          <div class="btn-row">
+            <a href="https://solutions.sciquest.com/apps/Router/SupplierLogin" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Abrir JAGGAER ↗</a>
+          </div>
+        </div>
+        <div class="opp-tile">
+          <h4>Programa COSTARS</h4>
+          <p>Programa de compras cooperativas — agencias locales (escuelas, municipios, organizaciones sin fines de lucro) pueden comprar de contratos activos de la Mancomunidad.</p>
+          <span class="opp-tag">Gob. Local · Escuelas · Sin Fines de Lucro</span>
+          <div class="btn-row">
+            <a href="https://www.pa.gov/agencies/dgs/programs-and-services/costars" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Conocer COSTARS ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout green">
+        <h4>🎯 Más Formas de Hacer Crecer Su Negocio con la Mancomunidad</h4>
+        <ul>
+          <li><a href="https://www.pa.gov/services/dgs/apply-to-participate-in-the-pennsylvania-mentor-protege-program1" target="_blank" rel="noopener">Solicite Participar en el Programa de Mentor-Protégé de Pensilvania ↗</a></li>
+          <li><a href="https://www.pa.gov/agencies/dgs/programs-and-services/costars/training-center" target="_blank" rel="noopener">Obtenga capacitación para convertirse en un COSTARS Superstar ↗</a></li>
+          <li>Vea el <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/small-and-diverse-business-resources" target="_blank" rel="noopener">video de capacitación sobre Reserva de Pequeños Negocios y Metas de BISD ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-row" style="margin-top:6px;">
+        <a href="https://www.pa.gov/agencies/dgs/procurement-resources/supplier-service-center"
+           class="btn btn-primary" target="_blank" rel="noopener">
+          Visitar el Centro de Servicios para Proveedores ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AYUDA / CONTACTO ────────────────────────────────────── -->
+  <section class="section help-band">
+    <h2>¿Necesita Ayuda? Estamos Aquí.</h2>
+    <p>El Centro de Servicios para Proveedores de PA brinda asistencia con el registro, la certificación, las licitaciones y los pagos. Los recursos están disponibles en inglés y español.</p>
+
+    <div class="contact-grid">
+      <div class="contact-tile">
+        <h4>Soporte del Portal de Proveedores</h4>
+        <div class="val"><a href="tel:8774357363">(877) 435-7363</a></div>
+        <div class="note"><a href="mailto:ra-pscsrmportal@pa.gov">ra-pscsrmportal@pa.gov</a></div>
+        <div class="note">Registro · Número de Proveedor</div>
+      </div>
+      <div class="contact-tile">
+        <h4>Ayuda General para Licitaciones</h4>
+        <div class="val"><a href="tel:8447247267">(844) 724-7267</a></div>
+        <div class="note"><a href="mailto:srmhelp@pa.gov">srmhelp@pa.gov</a></div>
+        <div class="note">eMarketplace · Soporte IFB</div>
+      </div>
+      <div class="contact-tile">
+        <h4>Soporte de JAGGAER</h4>
+        <div class="val"><a href="tel:8002331121">(800) 233-1121</a></div>
+        <div class="note">Opción 2 — asistencia al proveedor</div>
+        <div class="note">RFPs · ITQs · SFP</div>
+      </div>
+      <div class="contact-tile">
+        <h4>Consultas de Pago</h4>
+        <div class="val"><a href="mailto:ra-pscpaymentinquire@pa.gov">Enviar Correo al Equipo de Pagos</a></div>
+        <div class="note"><a href="mailto:ra-pscpaymentinquire@pa.gov">ra-pscpaymentinquire@pa.gov</a></div>
+        <div class="note">Estado de facturas y pagos</div>
+      </div>
+      <div class="contact-tile" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <h4 style="margin: 0;">Apoyo para Pequeños Negocios Diversos y de Veteranos</h4>
+        <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo/contact-us" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Contactar BISD ↗</a>
+      </div>
+    </div>
+
+  </section>
+
+  <p class="footnote">
+    Información obtenida del
+    <a href="https://www.pa.gov/agencies/dgs" target="_blank" rel="noopener">Departamento de Servicios Generales de Pensilvania (DGS)</a>,
+    <a href="https://www.pa.gov/agencies/dgs/programs-and-services/disbo" target="_blank" rel="noopener">BISD</a> y el
+    <a href="https://www.pa.gov/agencies/dgs/procurement-resources/supplier-service-center" target="_blank" rel="noopener">Centro de Servicios para Proveedores de PA</a>.
+    Última verificación: marzo 2026. Confirme siempre los requisitos actuales en
+    <a href="https://www.pa.gov" target="_blank" rel="noopener">pa.gov</a>.
+  </p>
+
+</main>
+
+</div><!-- /content-es -->
+
+<!-- ══════════════════════ SCRIPT ═══════════════════════════════ -->
+<script>
+  function selectPath(path) {
+    // Toggle the clicked tile
+    var clickedTile = document.getElementById('tile-' + path);
+    var isNowActive = !clickedTile.classList.contains('active');
+    clickedTile.classList.toggle('active', isNowActive);
+    clickedTile.setAttribute('aria-pressed', isNowActive ? 'true' : 'false');
+
+    // Collect all currently active paths
+    var active = ['sb','sdb','vbe'].filter(function(p) {
+      return document.getElementById('tile-' + p).classList.contains('active');
+    });
+
+    // Show note if SDB or VBE is selected
+    var note = document.getElementById('path-note');
+    note.style.display = (active.indexOf('sdb') !== -1 || active.indexOf('vbe') !== -1) ? 'block' : 'none';
+
+    // Determine which panels should be lit
+    var litPanels = [];
+    if (active.length === 0) {
+      // Nothing selected — reset all to neutral
+      ['panel-sb','panel-sdb','panel-vbe'].forEach(function(id) {
+        var el = document.getElementById(id);
+        el.classList.remove('lit');
+        el.classList.remove('dim');
+      });
+      return;
+    }
+    if (active.indexOf('sb')  !== -1) litPanels.push('panel-sb');
+    if (active.indexOf('sdb') !== -1) { litPanels.push('panel-sb'); litPanels.push('panel-sdb'); }
+    if (active.indexOf('vbe') !== -1) { litPanels.push('panel-sb'); litPanels.push('panel-vbe'); }
+
+    ['panel-sb','panel-sdb','panel-vbe'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (litPanels.indexOf(id) !== -1) {
+        el.classList.add('lit');
+        el.classList.remove('dim');
+      } else {
+        el.classList.remove('lit');
+        el.classList.add('dim');
+      }
+    });
+  }
+
+  function toggleHelp(btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    var isOpen = !panel.hidden;
+    if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent.trim();
+    panel.hidden = isOpen;
+    btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    btn.textContent = isOpen ? btn.dataset.originalText : '✕ Close';
+  }
+
+  document.querySelectorAll('.path-tile').forEach(function(tile) {
+    tile.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tile.click();
+      }
+    });
+  });
+
+  function toggleLang(toLang) {
+    document.getElementById('content-en').hidden = (toLang === 'es');
+    document.getElementById('content-es').hidden = (toLang === 'en');
+    window.scrollTo(0, 0);
+  }
+
+  function selectPathEs(path) {
+    // Toggle the clicked tile
+    var clickedTile = document.getElementById('tile-' + path + '-es');
+    var isNowActive = !clickedTile.classList.contains('active');
+    clickedTile.classList.toggle('active', isNowActive);
+    clickedTile.setAttribute('aria-pressed', isNowActive ? 'true' : 'false');
+
+    // Collect all currently active paths
+    var active = ['sb','sdb','vbe'].filter(function(p) {
+      return document.getElementById('tile-' + p + '-es').classList.contains('active');
+    });
+
+    // Show note if SDB or VBE is selected
+    var note = document.getElementById('path-note-es');
+    note.style.display = (active.indexOf('sdb') !== -1 || active.indexOf('vbe') !== -1) ? 'block' : 'none';
+
+    // Determine which panels should be lit
+    var litPanels = [];
+    if (active.length === 0) {
+      ['panel-sb-es','panel-sdb-es','panel-vbe-es'].forEach(function(id) {
+        var el = document.getElementById(id);
+        el.classList.remove('lit');
+        el.classList.remove('dim');
+      });
+      return;
+    }
+    if (active.indexOf('sb')  !== -1) litPanels.push('panel-sb-es');
+    if (active.indexOf('sdb') !== -1) { litPanels.push('panel-sb-es'); litPanels.push('panel-sdb-es'); }
+    if (active.indexOf('vbe') !== -1) { litPanels.push('panel-sb-es'); litPanels.push('panel-vbe-es'); }
+
+    ['panel-sb-es','panel-sdb-es','panel-vbe-es'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (litPanels.indexOf(id) !== -1) {
+        el.classList.add('lit');
+        el.classList.remove('dim');
+      } else {
+        el.classList.remove('lit');
+        el.classList.add('dim');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
