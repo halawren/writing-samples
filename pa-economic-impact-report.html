@@ -99,6 +99,7 @@
       font-weight: 900;
       line-height: 1.1;
       color: var(--white);
+      margin-top: 0;
       margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
@@ -153,6 +154,7 @@
       font-size: 24px;
       font-weight: 800;
       color: var(--ink);
+      margin-top: 0;
       margin-bottom: 20px;
       line-height: 1.25;
       letter-spacing: -0.3px;
@@ -505,7 +507,7 @@
 
     .annual-callout-body { flex: 1; }
 
-    .annual-callout-body h4 {
+    .annual-callout-body h3 {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
@@ -776,7 +778,7 @@
       margin: 0 auto;
     }
 
-    .methodology h3 {
+    .methodology h2 {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2.5px;
@@ -848,6 +850,17 @@
     .meth-limitation strong { color: var(--amber); }
     .meth-ol { padding-left: 20px; margin: 10px 0; }
     .meth-ol li { font-size: 13.5px; color: var(--gray-70); line-height: 1.8; margin-bottom: 5px; }
+
+    /* ─── NARROW SCREENS ────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .kpi-strip  { grid-template-columns: repeat(2, 1fr); }
+      .agency-pair { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 440px) {
+      .kpi-strip  { grid-template-columns: 1fr; }
+      .header-title { font-size: 28px; }
+      .section-title { font-size: 20px; }
+    }
 
     /* ─── PRINT ─────────────────────────────────────────────── */
     @media print {
@@ -976,7 +989,7 @@
 <div class="header">
   <div class="header-inner">
     <div class="header-agency">Commonwealth of Pennsylvania — Procurement Analysis</div>
-    <div class="header-title">Indirect Costs of a Complex Procurement System:<br><span style="font-size:0.72em;font-weight:600;letter-spacing:0.01em;">A Shallow Vendor Pool, Reduced Competition, and the Cost to the Commonwealth</span></div>
+    <h1 class="header-title">Indirect Costs of a Complex Procurement System:<br><span style="font-size:0.72em;font-weight:600;letter-spacing:0.01em;">A Shallow Vendor Pool, Reduced Competition, and the Cost to the Commonwealth</span></h1>
     <div class="header-sub">How Competitive Are PA State Contracts? · PA eMarketplace Bid Tabulation Review — FY 2024–2025</div>
     <div style="font-size:12.5px;color:rgba(255,255,255,0.5);margin-bottom:20px;margin-top:4px;">Produced by <strong style="color:rgba(255,255,255,0.75);">U.S. Digital Response</strong></div>
     <div class="header-meta">
@@ -1026,7 +1039,7 @@
   <!-- COMPETITION LEVELS — TWO GRAPHS -->
   <div class="section">
     <div class="section-tag">Section 1 — Competition Levels</div>
-    <div class="section-title">How Competitive Are PA Contracts?</div>
+    <h2 class="section-title">How Competitive Are PA Contracts?</h2>
     <p class="body-text">All 100 contracts were formally tendered through the open bid process.</p>
 
     <div class="graphs-wrap">
@@ -1232,7 +1245,7 @@
   <!-- PRICE IMPACT -->
   <div class="section">
     <div class="section-tag">Section 2 — Price Impact of Competition</div>
-    <div class="section-title">What Competition Actually Delivers</div>
+    <h2 class="section-title">What Competition Actually Delivers</h2>
     <p class="body-text">Each bar shows what Pennsylvania <em>paid</em> (dark) versus what competition <em>saved</em> (teal) — the gap between highest and lowest submitted bids. These are real PA contract outcomes, not projections.</p>
 
     <div style="margin-top:28px;">
@@ -1295,7 +1308,7 @@
 
     <div class="annual-callout" style="border-color:var(--cyan);">
       <div class="annual-callout-body">
-        <h4 style="color:var(--cyan);">Conservative Estimate</h4>
+        <h3 style="color:var(--cyan);">Conservative Estimate</h3>
         <p>If 1–2 bidder contracts reached only 3–4 bidder pricing, the estimated annual saving is approximately:</p>
       </div>
       <div class="annual-callout-figure">
@@ -1307,7 +1320,7 @@
 
     <div class="annual-callout" style="margin-top:10px;">
       <div class="annual-callout-body">
-        <h4>Annual Savings Implication</h4>
+        <h3>Annual Savings Implication</h3>
         <p>If under-competitive contracts (1–4 bidders) achieved 5+ bidder pricing across the full 825-contract portfolio, estimated annual saving across PA procurement is approximately:</p>
       </div>
       <div class="annual-callout-figure">
@@ -1321,7 +1334,7 @@
   <!-- AGENCY PERFORMANCE -->
   <div class="section">
     <div class="section-tag">Section 3 — Agency Performance</div>
-    <div class="section-title">The Performance Gap</div>
+    <h2 class="section-title">The Performance Gap</h2>
     <p class="body-text">Every agency operates under the same procurement rules. The variation in outcomes reflects outreach and process — not market conditions beyond any agency's control.</p>
 
     <table>
@@ -1451,7 +1464,7 @@
   <!-- CASE STUDY -->
   <div class="section">
     <div class="section-tag">Section 4 — Vendor Pattern</div>
-    <div class="section-title">Case Study: Vendor A</div>
+    <h2 class="section-title">Case Study: Vendor A</h2>
     <p class="body-text">Vendor A appeared in more contracts in this sample than any other single vendor — and illustrates precisely how low competition harms value for money.</p>
 
     <div class="case-study">
@@ -1478,7 +1491,7 @@
   <!-- RECOMMENDATIONS -->
   <div class="section">
     <div class="section-tag">Section 5 — Recommendations</div>
-    <div class="section-title">Actions to Close the Competition Gap</div>
+    <h2 class="section-title">Actions to Close the Competition Gap</h2>
 
     <!-- SHORT-TERM -->
     <div style="margin-bottom:32px;">
@@ -1536,7 +1549,7 @@
 <!-- METHODOLOGY -->
 <div class="methodology">
   <div class="methodology-inner">
-    <h3>Methodology &amp; Data Notes</h3>
+    <h2>Methodology &amp; Data Notes</h2>
     <p>All figures are from a <strong>stratified random sample of 100 contracts</strong> manually reviewed from 825 competitive solicitations on PA eMarketplace (FY 2024–25). Sample was stratified proportionally by agency and file type. Each bid tabulation document was opened and reviewed directly — bidder counts and amounts recorded by hand. Margin of error: ±10% at 95% confidence<sup class="fn"><a href="#meth-sampling">[1]</a></sup>. Academic reference: Coviello &amp; Mariniello (2014); Decarolis (2014).</p>
     <p>An automated extraction approach was initially piloted across all 825 contracts but was found to have a <strong>45% error rate</strong> on validation. No automated data is used in this report. Contracts with price spread exceeding 500% of the highest bid are excluded from ratio analysis.</p>
 
