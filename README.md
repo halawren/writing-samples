@@ -12,7 +12,7 @@ Four documents covering three content types. Three of them document Pennsylvania
 
 [pa-quickstart-guide.html](https://halawren.github.io/writing-samples/pa-quickstart-guide.html)
 
-Takes a small business from nothing to registered, certified, and finding contract opportunities. Conditional paths by business type (Small Business, Small Diverse Business, Veteran Business Enterprise), prerequisites stated before each step, time estimates per stage, inline definitions for procurement jargon, and a full Spanish translation.
+Takes a small business from unregistered to registered, certified, and finding contract opportunities. Conditional paths by business type (Small Business, Small Diverse Business, Veteran Business Enterprise), prerequisites stated before each step, time estimates per stage, inline definitions for procurement jargon, and a full Spanish translation.
 
 ### Systems and identifier reference — reference
 
