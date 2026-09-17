@@ -4,25 +4,25 @@ Hannah Lawrence-Brown
 
 Four documents covering three content types. Three of them document Pennsylvania's supplier registration and procurement systems, from research I did on the Commonwealth's e-procurement redesign. The fourth is written against Rippling's published App Shop integration documentation.
 
-**Live pages: https://YOUR-USERNAME.github.io/writing-samples/**
+**Live pages: https://halawren.github.io/writing-samples/**
 
 ## The documents
 
 ### Quick start guide — tutorial
 
-[pa-quickstart-guide.html](https://YOUR-USERNAME.github.io/writing-samples/pa-quickstart-guide.html)
+[pa-quickstart-guide.html](https://halawren.github.io/writing-samples/pa-quickstart-guide.html)
 
 Takes a small business from nothing to registered, certified, and finding contract opportunities. Conditional paths by business type (Small Business, Small Diverse Business, Veteran Business Enterprise), prerequisites stated before each step, time estimates per stage, inline definitions for procurement jargon, and a full Spanish translation.
 
 ### Systems and identifier reference — reference
 
-[pa-systems-reference.html](https://YOUR-USERNAME.github.io/writing-samples/pa-systems-reference.html)
+[pa-systems-reference.html](https://halawren.github.io/writing-samples/pa-systems-reference.html)
 
 The structural counterpart to the guide. Which system owns what, which identifiers move between them, what states a supplier record can hold, and what each certification status permits. Built around tables and a state model rather than prose.
 
 ### Setting up E-Alerts for your NAICS codes — how-to guide
 
-[pa-ealerts-howto.html](https://YOUR-USERNAME.github.io/writing-samples/pa-ealerts-howto.html)
+[pa-ealerts-howto.html](https://halawren.github.io/writing-samples/pa-ealerts-howto.html)
 
 One task, end to end, including the part most procedural guides leave out: confirming it actually worked, and diagnosing it when it hasn't. Expected result stated after every step, plus a troubleshooting reference.
 
