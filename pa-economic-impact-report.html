@@ -855,8 +855,11 @@
 
     /* ─── NARROW SCREENS ────────────────────────────────────── */
     @media (max-width: 720px) {
-      .kpi-strip  { grid-template-columns: repeat(2, 1fr); }
-      .agency-pair { grid-template-columns: 1fr; }
+      .kpi-strip   { grid-template-columns: repeat(2, 1fr); }
+      .agency-pair,
+      .graphs-wrap,
+      .cs-grid,
+      .recs-grid   { grid-template-columns: 1fr; }
     }
     @media (max-width: 440px) {
       .kpi-strip  { grid-template-columns: 1fr; }
