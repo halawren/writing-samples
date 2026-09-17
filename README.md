@@ -30,7 +30,7 @@ One task, end to end, including the part most procedural guides leave out: confi
 
 [pa-economic-impact-report.html](https://halawren.github.io/writing-samples/pa-economic-impact-report.html)
 
-The analysis the three documents above came out of. Written for decision-makers rather than practitioners, which makes it a different audience, a different structure and a different job from the guides.
+The analysis the three documents above came out of, written for decision-makers rather than practitioners. I traced $34 million in annual loss to failures in documentation and service design. The findings became the evidence base for the first publicly funded e-procurement platform shared across multiple US states.
 
 ### Credential lifecycle and troubleshooting — reference
 
