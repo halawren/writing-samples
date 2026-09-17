@@ -166,16 +166,7 @@
       margin-bottom: 2px; color: #047857;
     }
 
-    /* ─── Code sample ───────────────────────────────────────── */
-    .naics-demo {
-      background: #F8FAFC; border: 1px solid var(--gray-border);
-      border-radius: 8px; padding: 14px 16px; margin: 12px 0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: .82rem; line-height: 1.85; color: var(--text-mid);
-      overflow-x: auto;
-    }
-    .naics-demo b { color: var(--blue-deep); }
-    .naics-demo i { color: var(--text-light); font-style: normal; }
+    /* ─── Inline code ───────────────────────────────────────── */
     code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: .87em; background: var(--gray-bg);
@@ -324,12 +315,43 @@
           using the keyword search. NAICS is a hierarchy: each code narrows from a broad sector down to a specific
           national industry, and the full code is always six digits.
         </p>
-        <div class="naics-demo">
-<b>56</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Sector</i> &nbsp;· Administrative, Support, Waste Management and Remediation<br>
-<b>561</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Subsector</i> &nbsp;· Administrative and Support Services<br>
-<b>5617</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Industry group</i> &nbsp;· Services to Buildings and Dwellings<br>
-<b>56172</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>NAICS industry</i> &nbsp;· Janitorial Services<br>
-<b>561720</b>&nbsp;&nbsp;&nbsp;&nbsp;<i>National industry</i> &nbsp;· Janitorial Services
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Level</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>56</code></td>
+                <td>Sector</td>
+                <td>Administrative, Support, Waste Management and Remediation</td>
+              </tr>
+              <tr>
+                <td><code>561</code></td>
+                <td>Subsector</td>
+                <td>Administrative and Support Services</td>
+              </tr>
+              <tr>
+                <td><code>5617</code></td>
+                <td>Industry group</td>
+                <td>Services to Buildings and Dwellings</td>
+              </tr>
+              <tr>
+                <td><code>56172</code></td>
+                <td>NAICS industry</td>
+                <td>Janitorial Services</td>
+              </tr>
+              <tr>
+                <td><code>561720</code></td>
+                <td>National industry</td>
+                <td>Janitorial Services</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <p>
           Record the full six-digit code for each line of business. A partial code is not usable for matching.
